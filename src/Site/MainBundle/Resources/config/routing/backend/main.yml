@@ -1,0 +1,23 @@
+backend_dashboard:
+    path:     /
+    defaults: { _controller: "SiteMainBundle:Backend/Dashboard:index" }
+
+backend_page:
+    resource: "@SiteMainBundle/Resources/config/routing/backend/page.yml"
+    prefix: /page
+
+backend_media:
+    resource: "@SiteMainBundle/Resources/config/routing/backend/media.yml"
+    prefix: /media
+
+backend_photo_biography:
+    resource: "@SiteMainBundle/Resources/config/routing/backend/photo_biography.yml"
+    prefix: /photo_biography
+
+backend_news:
+    resource: "@SiteMainBundle/Resources/config/routing/backend/news.yml"
+    prefix: /news
+
+backend_comments:
+    resource: "@SiteMainBundle/Resources/config/routing/backend/comments.yml"
+    prefix: /comments

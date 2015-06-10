@@ -1,0 +1,16 @@
+frontend_homepage:
+    path:     /
+    defaults: { _controller: "SiteMainBundle:Frontend/Main:index" }
+
+frontend_feedback:
+    path:     /feedback
+    defaults: { _controller: "SiteMainBundle:Frontend/Main:feedback" }
+    methods:  POST
+
+frontend_media:
+    resource: "@SiteMainBundle/Resources/config/routing/frontend/media.yml"
+    prefix: /miedia
+
+frontend_page_index:
+    path:     /{slug}
+    defaults: { _controller: "SiteMainBundle:Frontend/Main:index" }

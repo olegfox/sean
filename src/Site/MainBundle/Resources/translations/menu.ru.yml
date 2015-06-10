@@ -1,0 +1,109 @@
+backend:
+    page:
+        h1_show: Страница
+        h1_list: Список страниц
+        h1_edit: Редактирование страницы
+        h1_create: Создание страницы
+        back_to_list: Назад к списку страниц
+        empty_list: Нет страниц
+        title: Заголовок
+        metatitle: Мета-заголовок
+        metadescription: Мета-описание
+        metakeywords: Ключевые слова
+        text: Текст страницы
+        position: Позиция в меню
+        parent: Родитель
+        not_found: Страница не существует
+        validation:
+            title: Вы не ввели заголовок!
+            position: Вы не ввели позицию!
+            position_integer: Вы некорректно ввели позицию!
+            position_min: Позициия не может быть меньше нуля!
+    photo_biography:
+        h1_show: Фото в биографии
+        h1_list: Список фотографий
+        h1_edit: Редактирование фотографии
+        h1_create: Добавление фотографии
+        back_to_list: Назад к списку фотографий
+        empty_list: Нет фотографий
+        date: Дата
+        img: Фото
+        text: Описание фотографии
+        not_found: Фотография не существует
+        validation:
+            date: Вы не ввели дату!
+    media:
+        h1_show: Медиа
+        h1_list: Список медиа
+        h1_edit: Редактирование медиа
+        h1_create: Создание медиа
+        back_to_list: Назад к списку медиа
+        empty_list: Нет медиа
+        title: Заголовок
+        description: Краткое описание
+        preview: Превью картинка
+        text: Текст
+        metaTitle: Мета-заголовок
+        metaDescription: Мета-описание
+        metaKeywords: Ключевые слова
+        video: Видео (Youtube, Vimeo)
+        photos: Фото-галерея
+        audio: Аудио
+        created: Дата создания
+        not_found: Медиа не существует
+        video_not_found: Нет видео
+        validation:
+            title: Вы не ввели заголовок!
+    news:
+        h1_show: Новость
+        h1_list: Список новостей
+        h1_edit: Редактирование новости
+        h1_create: Создание новости
+        back_to_list: Назад к списку новостей
+        empty_list: Нет новостей
+        title: Заголовок новости
+        metatitle: Мета-заголовок
+        metadescription: Мета-описание
+        metakeywords: Ключевые слова
+        date: Дата
+        img: Изображение новости
+        description: Превью новости
+        text: Текст новости
+        not_found: Новость не существует
+        validation:
+            title: Вы не ввели заголовок!
+            date: Вы не ввели дату!
+    comments:
+        h1_show: Комментарии
+        h1_list: Список комментариев
+        h1_edit: Редактирование комментария
+        h1_create: Создание комментария
+        back_to_list: Назад к списку комментариев
+        empty_list: Нет комментариев
+        title: Заголовок комметария
+        metatitle: Мета-заголовок
+        metadescription: Мета-описание
+        metakeywords: Ключевые слова
+        date: Дата
+        img: Изображение комментария
+        description: Превью комметария
+        text: Текст комметария
+        not_found: Комметарий не существует
+        validation:
+            title: Вы не ввели заголовок!
+            date: Вы не ввели дату!
+    actions: Действия
+    show: показать
+    edit: редактировать
+    update: сохранить
+    create: создать
+    delete: удалить
+
+frontend:
+    feedback:
+        placeholder:
+            name: Имя
+            phone: Телефон
+            email: Электронная почта
+            theme: Тема письма
+            message: Сообщение

@@ -1,0 +1,14 @@
+{% extends 'SiteMainBundle:Frontend:layout.html.twig' %}
+
+{% block title %}{{ 'frontend.comments.title'|trans({}, 'menu') }} | {{ comments.metaTitle }}{% endblock %}
+{% block meta_description %}{{ comments.metaDescription }}{% endblock %}
+{% block meta_keywords %}{{ comments.metaKeywords }}{% endblock %}
+
+{% block content %}
+    <div class="wrap_content">
+        <div class="content">
+            <h1 class="h1_news">{{ comments.title }}</h1>
+            {{ comments.text|raw }}
+        </div>
+    </div>
+{% endblock %}

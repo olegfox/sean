@@ -1,0 +1,157 @@
+{% extends 'SiteMainBundle:Frontend:layout.html.twig' %}
+
+{% from 'SiteMainBundle:Frontend/News:macros.html.twig' import listTab %}
+{% from 'SiteMainBundle:Frontend/Comments:macros.html.twig' import listTabComments %}
+
+{% block content %}
+    {# Главная страница #}
+    <div class="st-content" id="{{ pages[0].slug }}"><!-- this is the wrapper for the content -->
+        <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+            <div class="container">
+
+                <div class="content">
+
+                    <div class="main">
+                        {{ pages[0].text|raw }}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {# Биография #}
+    <div class="st-content" id="{{ pages[1].slug }}"><!-- this is the wrapper for the content -->
+        <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+            <div class="container">
+                <div class="content">
+                    <div class="text">
+                        {{ pages[1].text|raw }}
+                    </div>
+                    <div class="photo-block">
+                        {% for photo in photos %}
+                            <div class="wrap-photo">
+                                <div class="photo">
+                                    <a class="image-link" href="{{ asset(photo.webPath) }}" target="_blank"><img src="{{ image(photo.webPath).cropResize(102).jpeg(100) }}" alt=""/></a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {# Новости #}
+    <div class="st-content" id="{{ pages[2].slug }}"><!-- this is the wrapper for the content -->
+        <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+            <div class="container">
+                <div class="content">
+                    <div class="text">
+                        <h1>Новости с Саблиным Дмитрием Вадимовичем</h1>
+                        {{ listTab(news) }}
+                    </div>
+                    <div class="wrap-comments">
+                        <div class="comments">
+                            <div class="wrap-comment">
+                                <div class="comment">
+
+                                </div>
+                            </div>
+                            <div class="wrap-comment">
+                                <div class="comment">
+
+                                </div>
+                            </div>
+                            <div class="wrap-comment">
+                                <div class="comment">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {# Комментарии #}
+    <div class="st-content" id="{{ pages[3].slug }}"><!-- this is the wrapper for the content -->
+        <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+            <div class="container">
+                <div class="content">
+                    <div class="text">
+                        <h1>Комментарии с Саблиным Дмитрием Вадимовичем</h1>
+                        {{ listTabComments(comments) }}
+                    </div>
+                    <div class="wrap-comments">
+                        <div class="comments">
+                            <div class="wrap-comment">
+                                <div class="comment">
+
+                                </div>
+                            </div>
+                            <div class="wrap-comment">
+                                <div class="comment">
+
+                                </div>
+                            </div>
+                            <div class="wrap-comment">
+                                <div class="comment">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="st-content" id="{{ pages[4].slug }}"><!-- this is the wrapper for the content -->
+        <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+            <div class="container">
+                <div class="content">
+                    <div class="text">
+                        {{ pages[4].text|raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="st-content" id="{{ pages[5].slug }}"><!-- this is the wrapper for the content -->
+        <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+            <div class="container">
+                <div class="content">
+                    <div class="text">
+                        {{ pages[5].text|raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% if app.request.get('slug') %}
+        <script type="text/javascript">
+            $(function(){
+                if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    $(window).load(function () {
+                        if('{{ app.request.get('slug') }}' != "glavnaia"){
+                            $(".nav").switchClass('black', 'white', 1000, "easeInOutQuad");
+                            $(".footer").switchClass('black', 'white', 1000, "easeInOutQuad");
+                            $("div.header").switchClass('black', 'white', 1000, "easeInOutQuad");
+                        }else{
+                            $(".nav").switchClass('white', 'black', 1000, "easeInOutQuad");
+                            $(".footer").switchClass('white', 'black', 1000, "easeInOutQuad");
+                            $("div.header").switchClass('white', 'black', 1000, "easeInOutQuad");
+                        }
+                        $('.nav a[href="#{{ app.request.get('slug') }}"]').parent().addClass('current');
+                        enable_scroll();
+                        $('.wrap-st-content').scrollTop($('#{{ app.request.get('slug') }}').index() * $('.wrap-st-content').height());
+                        disable_scroll($('#{{ app.request.get('slug') }}').index() * $('.wrap-st-content').height());
+                    });
+                }
+            });
+        </script>
+    {% endif %}
+{% endblock %}

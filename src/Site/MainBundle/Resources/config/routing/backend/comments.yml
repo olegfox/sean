@@ -1,0 +1,30 @@
+backend_comments_index:
+    path:     /
+    defaults: { _controller: "SiteMainBundle:Backend/Comments:index" }
+
+backend_comments_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiteMainBundle:Backend/Comments:show" }
+
+backend_comments_new:
+    path:     /new
+    defaults: { _controller: "SiteMainBundle:Backend/Comments:new" }
+
+backend_comments_create:
+    path:     /create
+    defaults: { _controller: "SiteMainBundle:Backend/Comments:create" }
+    methods:  POST
+
+backend_comments_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiteMainBundle:Backend/Comments:edit" }
+
+backend_comments_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiteMainBundle:Backend/Comments:update" }
+    methods:  [POST, PUT]
+
+backend_comments_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiteMainBundle:Backend/Comments:delete" }
+    methods:  [POST, DELETE]

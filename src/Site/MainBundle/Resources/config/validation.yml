@@ -1,0 +1,6 @@
+# src/Site/Bundle/MainBundle/Resources/config/validation.yml
+Site\MainBundle\Entity\Media:
+    properties:
+        title:
+            - NotBlank:
+                message: "backend.media.validation.title"

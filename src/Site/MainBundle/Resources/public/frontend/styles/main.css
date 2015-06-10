@@ -1,0 +1,139 @@
+@import url(../fonts/bicubik/bicubik.css);
+@import url(../fonts/cleanvertising/cleanvertising.css);
+@import url(../scripts/SidebarTransitions/component.css);
+html, body {
+  font-family: "cleanvel";
+  font-weight: 400;
+  height: 100%;
+  min-height: 100%; }
+
+.container {
+  min-height: 100%;
+  padding: 0px 50px; }
+
+.container {
+  width: 100%; }
+
+.container {
+  width: 100%; }
+
+.container {
+  width: 100%; }
+
+.nav.black {
+  margin: 27px -15px 0px -15px; }
+
+.nav.black > li > a {
+  color: #fff;
+  font-size: 20px; }
+
+.nav-pills.black > li.active > a, .nav-pills.black > li.active > a:hover, .nav-pills.black > li.active > a:focus {
+  background: none; }
+
+.nav.black > li > a:hover, .nav.black > li > a:focus {
+  background: none; }
+
+.nav-pills.black > li.last {
+  float: right; }
+
+.content {
+  padding-bottom: 70px; }
+
+.main {
+  position: absolute;
+  height: 108px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto; }
+  .main h1 {
+    font-family: "bicubik";
+    font-size: 30px;
+    color: #fff;
+    margin: 0px; }
+
+div.header.black {
+  position: fixed;
+  z-index: 2000;
+  width: 100%;
+  padding: 0px 50px; }
+
+.footer.black {
+  position: fixed;
+  width: 100%;
+  margin-top: -70px;
+  padding: 20px 50px 19px 50px;
+  color: #fff;
+  font-size: 16px;
+  bottom: 0px; }
+
+.wrap-st-content {
+  position: relative;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden; }
+
+.st-content#glavnaia {
+  background: url("../images/bg.jpg") no-repeat;
+  background-size: cover; }
+
+.st-menu h2 {
+  font-family: "bicubik";
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+  padding: 0; }
+.st-menu p {
+  font-size: 16px;
+  color: #acacac;
+  margin: 18px 0px;
+  padding: 0; }
+.st-menu .block {
+  margin: 0 0 60px 0; }
+.st-menu form {
+  margin-top: 50px; }
+  .st-menu form .hint {
+    color: #00b3ee;
+    margin-bottom: 10px; }
+  .st-menu form .hint-error {
+    color: red; }
+  .st-menu form label.error {
+    display: none !important; }
+  .st-menu form input.form-control {
+    height: auto;
+    width: 100%;
+    border: 0;
+    border-bottom: #acacac solid 1px;
+    background: #000;
+    font-size: 16px;
+    color: #acacac;
+    line-height: inherit;
+    margin: 0 0 20px 0;
+    padding: 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px; }
+    .st-menu form input.form-control.error {
+      border-bottom: red solid 1px; }
+    .st-menu form input.form-control:focus {
+      outline: 0;
+      box-shadow: none; }
+  .st-menu form button {
+    border: 0;
+    background: #000;
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    padding: 0; }
+    .st-menu form button:focus {
+      outline: 0; }
+.st-menu.st-menu-news {
+  width: 800px;
+  background: #fff; }
+  .st-menu.st-menu-news h2 {
+    font-family: "bicubik";
+    font-size: 30px;
+    color: #000; }
+  .st-menu.st-menu-news p {
+    color: #000; }
+
+/*# sourceMappingURL=main.css.map */

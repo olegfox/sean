@@ -1,0 +1,60 @@
+{% extends 'SiteMainBundle:Backend:layout.html.twig' %}
+
+{% block content -%}
+    <h1>{{ 'backend.comments.h1_show'|trans({}, 'menu') }}</h1>
+
+    {{ form(delete_form) }}
+
+    <table class="record_properties table table-striped table-bordered">
+        <tbody>
+        <tr>
+            <th>{{ 'backend.comments.title'|trans({}, 'menu') }}</th>
+            <td>{{ entity.title }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.comments.description'|trans({}, 'menu') }}</th>
+            <td>{{ entity.description }}</td>
+        </tr>
+        {% if entity.webPath %}
+            <tr>
+                <th>{{ 'backend.comments.img'|trans({}, 'menu') }}</th>
+                <td><a href="{{ asset(entity.webPath) }}" target="_blank"><img src="{{ image(entity.webPath).resize(150) }}" alt="{{ entity.title }}" width="150px"/></a></td>
+            </tr>
+        {% endif %}
+        <tr>
+            <th>{{ 'backend.comments.date'|trans({}, 'menu') }}</th>
+            <td>{{ entity.date|date('d.m.Y H:i') }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.comments.metatitle'|trans({}, 'menu') }}</th>
+            <td>{{ entity.metaTitle }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.comments.metadescription'|trans({}, 'menu') }}</th>
+            <td>{{ entity.metaDescription }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.comments.metakeywords'|trans({}, 'menu') }}</th>
+            <td>{{ entity.metaKeywords }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <ul class="record_actions nav nav-pills">
+        <li>
+            <a href="{{ path('backend_comments_index') }}">
+                {{ 'backend.news.back_to_list'|trans({}, 'menu') }}
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('backend_comments_edit', { 'id': entity.id }) }}">
+                {{ 'backend.edit'|trans({}, 'menu') }}
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('backend_comments_new') }}">
+                {{ 'backend.create'|trans({}, 'menu') }}
+            </a>
+        </li>
+    </ul>
+{% endblock %}
