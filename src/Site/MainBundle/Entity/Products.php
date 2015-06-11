@@ -1,0 +1,446 @@
+<?php
+
+namespace Site\MainBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+/**
+ * Site\MainBundle\Entity\Products
+ *
+ * @ORM\Table(name="products")
+ * @ORM\Entity(repositoryClass="Site\MainBundle\Entity\Repository\ProductsRepository")
+ */
+class Products
+{
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=100, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
+
+    /**
+     * @ORM\Column(length=500)
+     */
+    private $permalink;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_title", type="string", length=100, nullable=true)
+     */
+    private $metaTitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_description", type="string", length=500, nullable=true)
+     */
+    private $metaDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_keywords", type="string", length=500, nullable=true)
+     */
+    private $metaKeywords;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="text", type="text", nullable=true)
+     */
+    private $text;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $img;
+
+    /**
+     * @Assert\File()
+     */
+    private $file;
+
+    /**
+     * @var \Products
+     *
+     * @ORM\ManyToOne(targetEntity="Products")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="parent", referencedColumnName="id")
+     * })
+     */
+    private $parent;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Products", cascade={"persist", "remove"}, mappedBy="parent")
+     */
+    private $children;
+
+    public function getAbsolutePath()
+    {
+        return null === $this->img
+            ? null
+            : $this->getUploadRootDir().'/'.$this->img;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->img
+            ? null
+            : $this->getUploadDir().'/'.$this->img;
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../../'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        return 'uploads/products';
+    }
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+        $this->file = $file;
+
+        $this->upload();
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    public function upload()
+    {
+        if (null === $this->getFile()) {
+            return;
+        }
+
+        if (isset($this->img)) {
+            if(file_exists($this->getUploadDir().'/'.$this->img)){
+                unlink($this->getUploadDir().'/'.$this->img);
+            }
+            $this->img = null;
+        }
+
+        $this->img = $this->getFile()->getClientOriginalName();
+
+        $this->getFile()->move(
+            $this->getUploadDir(),
+            $this->img
+        );
+
+        $this->file = null;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return News
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return News
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set type
+     *
+     * @param integer $type
+     * @return News
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Set metaTitle
+     *
+     * @param string $metaTitle
+     * @return News
+     */
+    public function setMetaTitle($metaTitle)
+    {
+        $this->metaTitle = $metaTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get metaTitle
+     *
+     * @return string 
+     */
+    public function getMetaTitle()
+    {
+        return $this->metaTitle;
+    }
+
+    /**
+     * Set metaDescription
+     *
+     * @param string $metaDescription
+     * @return News
+     */
+    public function setMetaDescription($metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get metaDescription
+     *
+     * @return string 
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
+    }
+
+    /**
+     * Set metaKeywords
+     *
+     * @param string $metaKeywords
+     * @return News
+     */
+    public function setMetaKeywords($metaKeywords)
+    {
+        $this->metaKeywords = $metaKeywords;
+
+        return $this;
+    }
+
+    /**
+     * Get metaKeywords
+     *
+     * @return string 
+     */
+    public function getMetaKeywords()
+    {
+        return $this->metaKeywords;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return News
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set img
+     *
+     * @param string $img
+     * @return News
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * Get img
+     *
+     * @return string 
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \Site\MainBundle\Entity\Products $parent
+     * @return Products
+     */
+    public function setParent(\Site\MainBundle\Entity\Products $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \Site\MainBundle\Entity\Products 
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Add children
+     *
+     * @param \Site\MainBundle\Entity\Products $children
+     * @return Products
+     */
+    public function addChild(\Site\MainBundle\Entity\Products $children)
+    {
+        $this->children[] = $children;
+
+        return $this;
+    }
+
+    /**
+     * Remove children
+     *
+     * @param \Site\MainBundle\Entity\Products $children
+     */
+    public function removeChild(\Site\MainBundle\Entity\Products $children)
+    {
+        $this->children->removeElement($children);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(){
+        return $this->title;
+    }
+
+    /**
+     * Set permalink
+     *
+     * @param string $permalink
+     * @return Products
+     */
+    public function setPermalink($permalink)
+    {
+        $this->permalink = $permalink;
+
+        return $this;
+    }
+
+    /**
+     * Get permalink
+     *
+     * @return string 
+     */
+    public function getPermalink()
+    {
+        if (null === $this->parent) {
+            return $this->slug;
+        }
+
+        return $this->permalink = $this->parent->getPermalink().'/'.$this->slug;
+    }
+}

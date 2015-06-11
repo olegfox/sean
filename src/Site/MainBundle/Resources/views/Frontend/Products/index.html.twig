@@ -1,0 +1,47 @@
+{% extends 'SiteMainBundle:Frontend:layout.html.twig' %}
+
+{% from 'SiteMainBundle:Frontend/Products:macros.html.twig' import menuLeft %}
+{% from 'SiteMainBundle:Frontend/Products:macros.html.twig' import breadcrumbs %}
+
+{% block content %}
+    <div class="container">
+
+        <!-- Left menu -->
+        <div class="menu-left">
+            <ul>
+                {{ menuLeft(products) }}
+            </ul>
+        </div>
+        <!-- end Left menu -->
+
+        <!-- Content -->
+        <div class="content">
+
+            <!-- Breadcrumbs -->
+            <div class="breadcrumbs">
+                <ul>
+                    <li>
+                        <a href="{{ path('frontend_homepage') }}">главная страница</a>
+                        <span class="line">/</span>
+                    </li>
+                    {{ breadcrumbs(product, product) }}
+                </ul>
+            </div>
+            <!-- end Breadcrumbs -->
+
+            <!-- Text -->
+            <div class="text">
+                {{ product.text|raw }}
+            </div>
+            <!-- end Text -->
+
+        </div>
+        <!-- end Content -->
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+{% endblock %}

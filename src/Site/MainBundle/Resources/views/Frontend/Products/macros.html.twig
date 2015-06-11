@@ -1,0 +1,32 @@
+{% macro menuLeft(products) %}
+    {% import _self as macros %}
+    {% for p in products %}
+        <li>
+            <a href="{{ path('frontend_products_one', {'permalink' : p.permalink}) }}">
+                {{ p.title }}
+            </a>
+            {% if p.children %}
+                <ul>
+                    {{ macros.menuLeft(p.children) }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+{% endmacro %}
+
+{% macro breadcrumbs(product, currentProduct) %}
+    {% import _self as macros %}
+    {% if product.parent.id is defined %}
+        {{ macros.breadcrumbs(product.parent, product) }}
+    {% endif %}
+    <li>
+        {% if product.id != currentProduct.id %}
+            <a href="{{ path('frontend_products_one', {'permalink' : product.permalink}) }}">
+                {{ product.title }}
+            </a>
+            <span class="line">/</span>
+        {% else %}
+            <span>{{ product.title }}</span>
+        {% endif %}
+    </li>
+{% endmacro %}

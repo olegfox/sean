@@ -13,23 +13,14 @@ class MainController extends Controller
     public function indexAction($slug = null)
     {
         $repository_page = $this->getDoctrine()->getRepository('SiteMainBundle:Page');
-        $repository_photo_biography = $this->getDoctrine()->getRepository('SiteMainBundle:PhotoBiography');
-        $repository_news = $this->getDoctrine()->getRepository('SiteMainBundle:News');
-        $repository_comments = $this->getDoctrine()->getRepository('SiteMainBundle:Comments');
+        $repository_products = $this->getDoctrine()->getRepository('SiteMainBundle:Products');
 
         $pages = $repository_page->findAll();
-        $photos = $repository_photo_biography->findAll();
-        $news = $repository_news->findAll();
-        $comments = $repository_comments->findAll();
-
-        $form = $this->createCreateForm(new Feedback());
+        $products = $repository_products->findAllWithoutParent();
 
         return $this->render('SiteMainBundle:Frontend/Main:index.html.twig', array(
             'pages' => $pages,
-            'photos' => $photos,
-            'news' => $news,
-            'comments' => $comments,
-            'form' => $form->createView()
+            'products' => $products
         ));
     }
 

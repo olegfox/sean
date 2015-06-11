@@ -73,6 +73,23 @@ backend:
         validation:
             title: Вы не ввели заголовок!
             date: Вы не ввели дату!
+    products:
+        h1_show: Продукты
+        h1_list: Список продуктов
+        h1_edit: Редактирование продукта
+        h1_create: Добавление продукта
+        back_to_list: Назад к списку продуктов
+        empty_list: Нет продуктов
+        parent: Родитель
+        title: Название продукта
+        metatitle: Мета-заголовок
+        metadescription: Мета-описание
+        metakeywords: Ключевые слова
+        img: Изображение продукта
+        text: Текст продукта
+        not_found: Продукт не существует
+        validation:
+            title: Вы не ввели заголовок!
     comments:
         h1_show: Комментарии
         h1_list: Список комментариев

@@ -21,21 +21,28 @@ class FrontendMenuBuilder extends ContainerAware
 
         $menu = $factory->createItem('root');
 
-        $menu->setChildrenAttribute('class', 'nav nav-pills black');
+//        $menu->setChildrenAttribute('class', 'nav nav-pills black');
 
         foreach ($menus as $key => $m) {
-            $menuItem = $menu
-                ->addChild($m->getTitle(), array(
-                    'uri' => '#' . $m->getSlug()
-                ));
-
-            if($key == count($menus) - 1){
-                $menuItem
-                    ->setLinkAttributes(array(
-                        'data-effect' => 'st-effect-1'
+            if($key == 0){
+                $menu
+                    ->addChild($m->getTitle(), array(
+                        'route' => 'frontend_homepage'
+                    ));
+            }else{
+                $menu
+                    ->addChild($m->getTitle(), array(
+                        'route' => 'frontend_page_index',
+                        'routeParameters' => array('slug' => $m->getSlug())
                     ));
             }
         }
+
+        $menu->addChild("", array(
+            'route' => "",
+            'routeParameters' => "",
+            'linkAttributes' => array(),
+        ))->setLabel("");
 
         $menu->setCurrent($this->container->get('request')->getRequestUri());
 

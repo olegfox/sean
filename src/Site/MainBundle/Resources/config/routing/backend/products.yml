@@ -1,0 +1,30 @@
+backend_products_index:
+    path:     /
+    defaults: { _controller: "SiteMainBundle:Backend/Products:index" }
+
+backend_products_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiteMainBundle:Backend/Products:show" }
+
+backend_products_new:
+    path:     /new
+    defaults: { _controller: "SiteMainBundle:Backend/Products:new" }
+
+backend_products_create:
+    path:     /create
+    defaults: { _controller: "SiteMainBundle:Backend/Products:create" }
+    methods:  POST
+
+backend_products_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiteMainBundle:Backend/Products:edit" }
+
+backend_products_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiteMainBundle:Backend/Products:update" }
+    methods:  [POST, PUT]
+
+backend_products_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiteMainBundle:Backend/Products:delete" }
+    methods:  [POST, DELETE]

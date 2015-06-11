@@ -18,6 +18,10 @@ backend_news:
     resource: "@SiteMainBundle/Resources/config/routing/backend/news.yml"
     prefix: /news
 
+backend_products:
+    resource: "@SiteMainBundle/Resources/config/routing/backend/products.yml"
+    prefix: /products
+
 backend_comments:
     resource: "@SiteMainBundle/Resources/config/routing/backend/comments.yml"
     prefix: /comments

@@ -11,6 +11,10 @@ frontend_media:
     resource: "@SiteMainBundle/Resources/config/routing/frontend/media.yml"
     prefix: /miedia
 
+frontend_products:
+    resource: "@SiteMainBundle/Resources/config/routing/frontend/products.yml"
+    prefix: /products
+
 frontend_page_index:
     path:     /{slug}
     defaults: { _controller: "SiteMainBundle:Frontend/Main:index" }
