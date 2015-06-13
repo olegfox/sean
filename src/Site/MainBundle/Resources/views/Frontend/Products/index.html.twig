@@ -21,7 +21,7 @@
 
         {% for p in products2 %}
             <!-- Content -->
-            <div class="content">
+            <div class="content" id="{{ path('frontend_products_one', {'permalink' : p.permalink}) }}">
 
                 <div class="wrap_head"><div class="head">{{ p.title }}</div></div>
 
@@ -41,5 +41,5 @@
 
 {% block javascripts %}
     {{ parent() }}
-
+    <script src="{{ asset('bundles/sitemain/frontend/bower_components/sticky/jquery.sticky.js') }}"></script>
 {% endblock %}
