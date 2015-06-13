@@ -37,7 +37,7 @@ class Products
     private $slug;
 
     /**
-     * @ORM\Column(length=500, unique=true)
+     * @ORM\Column(type="text", length=500, nullable=true)
      */
     private $permalink;
 
@@ -91,9 +91,13 @@ class Products
 
     /**
      * @ORM\OneToMany(targetEntity="Products", cascade={"persist", "remove"}, mappedBy="parent")
-     * @ORM\OrderBy({"position" = "ASC"})
      */
     private $children;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hideMenu;
 
     public function getAbsolutePath()
     {
@@ -416,5 +420,32 @@ class Products
      */
     public function __toString(){
         return $this->title;
+    }
+
+    /**
+     * Set permalink
+     *
+     * @param string $permalink
+     * @return Products
+     */
+    public function setPermalink($permalink)
+    {
+        $this->permalink = $permalink;
+
+        return $this;
+    }
+
+    /**
+     * Get permalink
+     *
+     * @return string 
+     */
+    public function getPermalink()
+    {
+        if (null === $this->parent) {
+            return $this->slug;
+        }
+
+        return $this->permalink = $this->parent->getPermalink().'/'.$this->slug;
     }
 }

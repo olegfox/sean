@@ -47,6 +47,14 @@ class ProductsType extends AbstractType
                 'required' => false,
                 'label' => 'backend.products.img'
             ))
+            ->add('hideMenu', 'choice', array(
+                'required' => false,
+                'label' => 'backend.products.hideMenu',
+                'choices' => array(
+                    0 => 'Нет',
+                    1 => 'Да'
+                )
+            ))
         ;
     }
     

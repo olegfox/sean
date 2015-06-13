@@ -1,16 +1,18 @@
 {% macro menuLeft(products) %}
     {% import _self as macros %}
     {% for p in products %}
-        <li>
-            <a href="{{ path('frontend_products_one', {'permalink' : p.permalink}) }}">
-                {{ p.title }}
-            </a>
-            {% if p.children %}
-                <ul>
-                    {{ macros.menuLeft(p.children) }}
-                </ul>
-            {% endif %}
-        </li>
+        {% if p.hideMenu == 0 %}
+            <li>
+                <a href="{{ path('frontend_products_one', {'permalink' : p.permalink}) }}">
+                    {{ p.title }}
+                </a>
+                {% if p.children %}
+                    <ul>
+                        {{ macros.menuLeft(p.children) }}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endif %}
     {% endfor %}
 {% endmacro %}
 

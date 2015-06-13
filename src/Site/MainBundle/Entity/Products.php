@@ -37,7 +37,7 @@ class Products
     private $slug;
 
     /**
-     * @ORM\Column(length=500)
+     * @ORM\Column(type="text", length=500, nullable=true)
      */
     private $permalink;
 
@@ -93,6 +93,11 @@ class Products
      * @ORM\OneToMany(targetEntity="Products", cascade={"persist", "remove"}, mappedBy="parent")
      */
     private $children;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $hideMenu;
 
     public function getAbsolutePath()
     {
@@ -442,5 +447,28 @@ class Products
         }
 
         return $this->permalink = $this->parent->getPermalink().'/'.$this->slug;
+    }
+
+    /**
+     * Set hideMenu
+     *
+     * @param boolean $hideMenu
+     * @return Products
+     */
+    public function setHideMenu($hideMenu)
+    {
+        $this->hideMenu = $hideMenu;
+
+        return $this;
+    }
+
+    /**
+     * Get hideMenu
+     *
+     * @return boolean 
+     */
+    public function getHideMenu()
+    {
+        return $this->hideMenu;
     }
 }
