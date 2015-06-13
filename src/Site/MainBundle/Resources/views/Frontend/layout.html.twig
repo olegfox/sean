@@ -6,6 +6,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="{{ asset('bundles/sitemain/frontend/bower_components/bootstrap/dist/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/sitemain/frontend/bower_components/slick.js/slick/slick.css') }}">
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -67,6 +68,7 @@
 
 {% block javascripts %}
     {{ parent() }}
+
     <!-- build:js(.) scripts/plugins.js -->
     <script src="{{ asset('bundles/sitemain/frontend/bower_components/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('bundles/sitemain/frontend/bower_components/bootstrap/js/affix.js') }}"></script>
@@ -82,6 +84,7 @@
     <script src="{{ asset('bundles/sitemain/frontend/bower_components/bootstrap/js/collapse.js') }}"></script>
     <script src="{{ asset('bundles/sitemain/frontend/bower_components/bootstrap/js/tab.js') }}"></script>
     <script src="{{ asset('bundles/sitemain/frontend/bower_components/vide/dist/jquery.vide.min.js') }}"></script>
+    <script src="{{ asset('bundles/sitemain/frontend/bower_components/slick.js/slick/slick.min.js') }}"></script>
     <!-- endbuild -->
 
     <!-- build:js({app,.tmp}) scripts/main.js -->

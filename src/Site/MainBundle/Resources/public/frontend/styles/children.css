@@ -1,0 +1,5 @@
+/* line 1, ../sass/children.sass */
+.container {
+  background: url(../images/bg.jpg) 0 0 no-repeat;
+  background-attachment: fixed;
+}

@@ -48,8 +48,9 @@ class ProductsController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity->setPermalink($entity->getPermalink());
             $em->persist($entity);
+            $em->flush();
+            $entity->setPermalink($entity->getPermalink());
             $em->flush();
 
             return $this->redirect($this->generateUrl('backend_products_show', array('id' => $entity->getId())));
