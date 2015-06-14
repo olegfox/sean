@@ -33,14 +33,36 @@
                 </div>
                 <!-- end Text -->
 
+                <div class="footer"></div>
             </div>
             <!-- end Content -->
         {% endfor %}
     </div>
 {% endblock %}
 
+{% block footer %}
+{% endblock %}
+
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('bundles/sitemain/frontend/bower_components/sticky/jquery.sticky.js') }}"></script>
-    <script src="{{ asset('bundles/sitemain/frontend/scroll.js') }}"></script>
+    <script src="{{ asset('bundles/sitemain/frontend/scripts/scroll.js') }}"></script>
+    {% if app.request.get('permalink') %}
+        <script type="text/javascript">
+            $(function(){
+                if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    $(".content").hide();
+                    $("*[id='{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}']").show();
+                    $(window).load(function () {
+                        $("*[id='{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}']").parent().addClass('current');
+                        if("{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}" == $('.menu-left > ul > li:first > a').attr('href')){
+                            $('body').scrollTop(0);
+                        }else{
+                            $('body').scrollTop($("*[id='{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}']").offset().top);
+                        }
+                    });
+                }
+            });
+        </script>
+    {% endif %}
 {% endblock %}
