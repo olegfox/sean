@@ -54,7 +54,7 @@
                     $(".content").hide();
                     $("*[id='{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}']").show();
                     $(window).load(function () {
-                        $("*[id='{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}']").parent().addClass('current');
+                        $("a[href='{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}']").parent().addClass('current');
                         if("{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}" == $('.menu-left > ul > li:first > a').attr('href')){
                             $('body').scrollTop(0);
                         }else{

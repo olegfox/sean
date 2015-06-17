@@ -1,4 +1,18 @@
-/* line 1, ../sass/children.sass */
+/* line 2, ../sass/children.sass */
+header .header-top {
+  position: relative;
+  width: 100%;
+}
+/* line 9, ../sass/children.sass */
+header .head2 div.right div.top .phone, header .head2 div.right div.top .email {
+  color: #000;
+}
+/* line 15, ../sass/children.sass */
+header .head2 div.right div.bottom .menu ul li a {
+  color: #000;
+}
+
+/* line 18, ../sass/children.sass */
 .container {
   background: url(../images/bg.jpg) 0 0 no-repeat;
   background-attachment: fixed;

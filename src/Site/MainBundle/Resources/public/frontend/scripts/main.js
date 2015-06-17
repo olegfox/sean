@@ -1,6 +1,6 @@
 $(function () {
   // Video
-  $('#video').vide('/bundles/sitemain/frontend/video/video.mp4', {
+  $('.block2 .video').vide('/bundles/sitemain/frontend/video/video.mp4', {
     muted: true,
     loop: true,
     autoplay: true,
