@@ -12,12 +12,35 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProductsRepository extends EntityRepository
 {
+    /**
+     * Продукты в левом меню
+     * @return array
+     */
     public function findAllWithoutParent(){
         $em = $this->getEntityManager();
 
         $query = $em->createQuery('
             SELECT p FROM SiteMainBundle:Products p
             WHERE p.parent IS NULL
+            ORDER BY p.position ASC
+        ');
+
+        return $query->getResult();
+    }
+
+    /**
+     * Продукты на главной
+     *
+     * @return array
+     */
+    public function findAllWithoutParentOnMain(){
+        $em = $this->getEntityManager();
+
+        $query = $em->createQuery('
+            SELECT p FROM SiteMainBundle:Products p
+            WHERE p.parent IS NULL
+            AND p.main = 1
+            ORDER BY p.position ASC
         ');
 
         return $query->getResult();

@@ -99,6 +99,16 @@ class Products
      */
     private $hideMenu;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $main;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $position = 0;
+
     public function getAbsolutePath()
     {
         return null === $this->img
@@ -470,5 +480,51 @@ class Products
     public function getHideMenu()
     {
         return $this->hideMenu;
+    }
+
+    /**
+     * Set main
+     *
+     * @param boolean $main
+     * @return Products
+     */
+    public function setMain($main)
+    {
+        $this->main = $main;
+
+        return $this;
+    }
+
+    /**
+     * Get main
+     *
+     * @return boolean 
+     */
+    public function getMain()
+    {
+        return $this->main;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Products
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 }

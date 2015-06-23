@@ -16,7 +16,7 @@ class MainController extends Controller
         $repository_products = $this->getDoctrine()->getRepository('SiteMainBundle:Products');
 
         $pages = $repository_page->findAll();
-        $products = $repository_products->findAllWithoutParent();
+        $products = $repository_products->findAllWithoutParentOnMain();
 
         return $this->render('SiteMainBundle:Frontend/Main:index.html.twig', array(
             'pages' => $pages,

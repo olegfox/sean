@@ -55,6 +55,18 @@ class ProductsType extends AbstractType
                     1 => 'Да'
                 )
             ))
+            ->add('main', 'choice', array(
+                'required' => true,
+                'label' => 'backend.products.main',
+                'choices' => array(
+                    0 => 'Нет',
+                    1 => 'Да'
+                )
+            ))
+            ->add('position', null, array(
+                'required' => true,
+                'label' => 'backend.products.position'
+            ))
         ;
     }
     
