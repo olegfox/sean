@@ -205,10 +205,10 @@ header .background-video .grid .wrap-box .box a:focus {
 }
 /* line 150, ../sass/main.sass */
 header .background-video .grid .wrap-box .box img {
-  -webkit-transition: all 1.5s ease-in-out;
-  -moz-transition: all 1.5s ease-in-out;
-  -o-transition: all 1.5s ease-in-out;
-  -ms-transition: all 1.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
   width: 100%;
   -moz-border-radius: 5px 5px 0px 0px;
   -webkit-border-radius: 5px;
