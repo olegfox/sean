@@ -5,11 +5,11 @@
 {% block content %}
     <div class="background-video">
         <div class="video" id="video"></div>
-        <div class="grid">
+        <div class="grid grid-main">
             {% for product in products %}<div class="wrap-box">
                     <div class="box">
                         {% set link = path('frontend_products_one', {'permalink' : product.permalink}) %}
-                        <a href="{{ link }}"><img src="{{ asset(product.webPath) }}" alt=""/></a>
+                        <a href="{{ link }}" class="first" style="background: url('{{ asset(product.webPath) }}');"><img src="{{ asset(product.webPath) }}" alt=""/></a>
                         <a href="{{ link }}" class="name">{{ product.title }}</a>
                     </div>
                 </div>{% endfor %}

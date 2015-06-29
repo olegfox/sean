@@ -51,7 +51,6 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('bundles/sitemain/frontend/bower_components/sticky/jquery.sticky.js') }}"></script>
     <script src="{{ asset('bundles/sitemain/frontend/scripts/scroll.js') }}"></script>
     {% if app.request.get('permalink') %}
         <script type="text/javascript">

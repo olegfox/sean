@@ -40,4 +40,15 @@ $(function () {
 
   // Sticky Menu
   $(".menu-left").sticky({topSpacing: 0});
+
+  // Ripple effect
+  $('.grid-main').imagesLoaded(function(){
+    $('.grid-main .wrap-box a.first').ripples({
+      resolution: 256,
+      dropRadius: 20,
+      perturbance: 0.04,
+      interactive: true
+    });
+  });
+
 });
