@@ -354,7 +354,7 @@ section .block0 {
 section .block0 h2 {
   color: #000;
   font-size: 16px;
-  padding: 28px 0 28px 0;
+  padding: 28px 0 66px 0;
   margin: 0;
   text-transform: uppercase;
 }
@@ -378,16 +378,16 @@ section .block0 .grid .wrap-box .box {
   overflow: hidden;
 }
 /* line 274, ../sass/main.sass */
-section .block0 .grid .wrap-box .box img {
-  width: 100%;
-}
-/* line 276, ../sass/main.sass */
 section .block0 .grid .wrap-box .box .name {
   color: #000;
   font-size: 16px;
-  padding: 28px 0 28px 0;
+  padding: 80px 0 28px 0;
   margin: 0;
   text-transform: uppercase;
+}
+/* line 280, ../sass/main.sass */
+section .block0 .grid .wrap-box .box .name.last {
+  padding-top: 70px;
 }
 /* line 282, ../sass/main.sass */
 section .block1 {
@@ -417,36 +417,52 @@ section .block1 .grid .wrap-box {
 }
 /* line 300, ../sass/main.sass */
 section .block1 .grid .wrap-box .box {
+  height: 260px;
   background: #fff;
   margin: 0px 14px;
   overflow: hidden;
 }
-/* line 304, ../sass/main.sass */
-section .block1 .grid .wrap-box .box img {
-  visibility: hidden;
+/* line 305, ../sass/main.sass */
+section .block1 .grid .wrap-box .box .wrap-img {
+  display: table-cell;
+  height: 218px;
+  width: 40%;
+  text-align: center;
+  vertical-align: middle;
 }
-/* line 306, ../sass/main.sass */
+/* line 312, ../sass/main.sass */
+section .block1 .grid .wrap-box .box .description {
+  display: table-cell;
+  height: 218px;
+  width: 60%;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: left;
+  padding-right: 40px;
+  vertical-align: middle;
+}
+/* line 321, ../sass/main.sass */
 section .block1 .grid .wrap-box .box .name {
   position: relative;
   font-size: 14px;
-  padding: 10px 15px 12px 15px;
+  padding: 10px 15px 0px 15px;
   background: #fff;
   text-align: center;
   text-transform: uppercase;
   z-index: 1000;
 }
-/* line 314, ../sass/main.sass */
+/* line 329, ../sass/main.sass */
 section .block2 {
   position: relative;
   text-align: center;
   padding-bottom: 1px;
 }
-/* line 318, ../sass/main.sass */
+/* line 333, ../sass/main.sass */
 section .block2 .video {
   height: 405px;
   margin-bottom: -405px;
 }
-/* line 321, ../sass/main.sass */
+/* line 336, ../sass/main.sass */
 section .block2 h2 {
   color: #000;
   font-size: 16px;
@@ -454,19 +470,19 @@ section .block2 h2 {
   margin: 0;
   text-transform: uppercase;
 }
-/* line 327, ../sass/main.sass */
+/* line 342, ../sass/main.sass */
 section .block2 .reviews {
   position: static;
   margin: 65px 130px;
 }
-/* line 330, ../sass/main.sass */
+/* line 345, ../sass/main.sass */
 section .block2 .reviews .wrap-photo {
   display: table-cell;
   width: 100px;
   vertical-align: top;
   padding-right: 20px;
 }
-/* line 335, ../sass/main.sass */
+/* line 350, ../sass/main.sass */
 section .block2 .reviews .wrap-photo .photo {
   height: 200px;
   width: 200px;
@@ -474,34 +490,34 @@ section .block2 .reviews .wrap-photo .photo {
   background: #fff url("../images/gazprom.jpg") 0 0 no-repeat;
   background-size: contain;
 }
-/* line 341, ../sass/main.sass */
+/* line 356, ../sass/main.sass */
 section .block2 .reviews .text {
   display: table-cell;
   vertical-align: top;
 }
-/* line 344, ../sass/main.sass */
+/* line 359, ../sass/main.sass */
 section .block2 .reviews p {
   color: #000;
   font-size: 16px;
 }
-/* line 347, ../sass/main.sass */
+/* line 362, ../sass/main.sass */
 section .block2 .reviews strong {
   display: inline-block;
   text-transform: uppercase;
   margin-top: 15px;
 }
-/* line 351, ../sass/main.sass */
+/* line 366, ../sass/main.sass */
 section .block2 .reviews .slick-track {
   position: static;
   text-align: left;
 }
-/* line 354, ../sass/main.sass */
+/* line 369, ../sass/main.sass */
 section .block2 .reviews .slick-list {
   position: static;
   width: 810px;
   margin: 0 auto;
 }
-/* line 358, ../sass/main.sass */
+/* line 373, ../sass/main.sass */
 section .block2 .reviews .slick-next, section .block2 .reviews .slick-prev {
   position: absolute;
   height: 60px;
@@ -511,46 +527,46 @@ section .block2 .reviews .slick-next, section .block2 .reviews .slick-prev {
   top: 50%;
   margin-top: -30px;
 }
-/* line 366, ../sass/main.sass */
+/* line 381, ../sass/main.sass */
 section .block2 .reviews .slick-next:focus, section .block2 .reviews .slick-prev:focus {
   outline: 0;
 }
-/* line 368, ../sass/main.sass */
+/* line 383, ../sass/main.sass */
 section .block2 .reviews .slick-next {
   background: url("../images/reviews_arrow.png") -32px 0 no-repeat;
   right: 130px;
 }
-/* line 371, ../sass/main.sass */
+/* line 386, ../sass/main.sass */
 section .block2 .reviews .slick-prev {
   background: url("../images/reviews_arrow.png") 0 0 no-repeat;
   left: 130px;
 }
 
-/* line 377, ../sass/main.sass */
+/* line 392, ../sass/main.sass */
 footer {
   text-align: center;
 }
-/* line 379, ../sass/main.sass */
+/* line 394, ../sass/main.sass */
 footer .wrap-footer1 {
   height: 275px;
   line-height: 275px;
   background: #e0ebef url("../images/footer-bg.jpg") top right no-repeat;
   background-size: contain;
 }
-/* line 384, ../sass/main.sass */
+/* line 399, ../sass/main.sass */
 footer .wrap-footer1 .footer1 {
   display: inline-block;
   height: 107px;
   line-height: initial;
 }
-/* line 388, ../sass/main.sass */
+/* line 403, ../sass/main.sass */
 footer .wrap-footer1 .footer1 .head {
   color: #000;
   font-size: 22px;
   text-transform: uppercase;
   margin-bottom: 25px;
 }
-/* line 393, ../sass/main.sass */
+/* line 408, ../sass/main.sass */
 footer .wrap-footer1 .footer1 a {
   display: inline-block;
   background: #002d66;
@@ -564,11 +580,11 @@ footer .wrap-footer1 .footer1 a {
   border-radius: 20px;
   text-transform: uppercase;
 }
-/* line 403, ../sass/main.sass */
+/* line 418, ../sass/main.sass */
 footer .wrap-footer1 .footer1 a:hover {
   color: #fff;
 }
-/* line 405, ../sass/main.sass */
+/* line 420, ../sass/main.sass */
 footer .wrap-footer1 .footer1 span {
   display: inline-block;
   color: #000;
@@ -579,13 +595,13 @@ footer .wrap-footer1 .footer1 span {
   line-height: 45px;
   vertical-align: middle;
 }
-/* line 414, ../sass/main.sass */
+/* line 429, ../sass/main.sass */
 footer .footer2 {
   background: #e5e5e5;
   height: 80px;
 }
 
-/* line 419, ../sass/main.sass */
+/* line 434, ../sass/main.sass */
 #undefined-sticky-wrapper {
   position: absolute;
 }
