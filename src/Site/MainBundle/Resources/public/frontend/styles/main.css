@@ -374,8 +374,8 @@ section .block0 .grid .wrap-box {
 /* line 270, ../sass/main.sass */
 section .block0 .grid .wrap-box .box {
   background: #fff;
-  margin: 0px 62px;
-  overflow: hidden;
+  margin: 0px 40px;
+  overflow: initial;
 }
 /* line 274, ../sass/main.sass */
 section .block0 .grid .wrap-box .box .name {
@@ -420,7 +420,7 @@ section .block1 .grid .wrap-box .box {
   height: 260px;
   background: #fff;
   margin: 0px 14px;
-  overflow: hidden;
+  overflow: initial;
 }
 /* line 305, ../sass/main.sass */
 section .block1 .grid .wrap-box .box .wrap-img {
