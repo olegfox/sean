@@ -20,6 +20,10 @@
 {% endblock %}
 
 {% block body %}
+    <div id="top-link">
+        <a href="#top"><span id="topicon"></span></a>
+    </div>
+
     {% block top %}
     {% endblock %}
     <div id="st-container" class="st-container">
@@ -124,5 +128,6 @@
     <script src="{{ asset('bundles/sitemain/frontend/scripts/wow.min.js') }}"></script>
     <script src="{{ asset('bundles/sitemain/frontend/scripts/jquery.ripples.js') }}"></script>
     <script src="{{ asset('bundles/sitemain/frontend/scripts/main.js') }}"></script>
+    <script src="{{ asset('bundles/sitemain/frontend/scripts/button.js') }}"></script>
     <!-- endbuild -->
 {% endblock %}

@@ -88,7 +88,7 @@ header .head2 .logo a {
   display: inline-block;
   height: 101px;
   width: 180px;
-  background: url("../images/aqua-logo.gif") no-repeat;
+  background: url("../images/aqua-logo.png") no-repeat;
   border: 0px;
 }
 /* line 78, ../sass/main.sass */
@@ -605,4 +605,35 @@ footer .footer2 {
 /* line 435, ../sass/main.sass */
 #undefined-sticky-wrapper {
   position: absolute;
+}
+
+/* line 438, ../sass/main.sass */
+#top-link a {
+  display: block;
+  width: 100px;
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-size: 14px;
+  color: #cbcbcb;
+  text-decoration: none !important;
+}
+
+/* line 451, ../sass/main.sass */
+#top-link {
+  cursor: pointer;
+  top: 0px;
+  bottom: 0px;
+  position: fixed;
+  z-index: 999;
+  width: 128px;
+  opacity: 0.5;
+  background: url("../images/top-page.png") center center no-repeat;
+}
+
+/* line 461, ../sass/main.sass */
+#top-link:hover {
+  opacity: 1;
 }

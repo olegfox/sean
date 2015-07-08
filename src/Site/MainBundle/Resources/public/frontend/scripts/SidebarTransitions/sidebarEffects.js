@@ -56,6 +56,10 @@ var SidebarMenuEffects = (function() {
         document.getElementById( 'st-container').className = 'st-container';
         $('.' + selector2).html($.parseJSON($(this).data( 'text' )));
 
+        $('.st-menu-block').css({
+          'width' : $('.wrap_text > .text').width() + ($(document).width() - $('.wrap_text > .text').width())/2 - 105
+        });
+
         //if (window.history.pushState) {
         //  window.history.pushState(null, null, $(this).data( 'href' ));
         //}
