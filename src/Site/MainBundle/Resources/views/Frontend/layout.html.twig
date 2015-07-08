@@ -22,64 +22,76 @@
 {% block body %}
     {% block top %}
     {% endblock %}
-    <!-- Шапка -->
-    <header>
-        <div class="header-top">
-            <div class="wrap-head1">
-                <div class="head1">
-                    <ul>
-                        <li>группа компаний "сеан"</li>
-                        <li><span>ооо "сеан-аква"</span></li>
-                        <li>ооо "wellform"</li>
-                        <li>"сеан-кр"</li>
-                        <li>"пск русский дом"</li>
-                        <li>"проектное бюро"</li>
-                        <li class="last"></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="head2">
-                <div class="logo">
-                    <a href="{{ path('frontend_homepage') }}"></a>
-                </div>
-                <div class="right">
-                    <div class="top">
-                        <div class="phone">
-                            Позвонить: (495) 664-30-69
+    <div id="st-container" class="st-container">
+        <div class="st-pusher">
+
+            {% block stMenu %}
+            {% endblock %}
+
+            <div class="wrap-container-box" id="wrap-container-box">
+                <div class="container-box">
+                    <!-- Шапка -->
+                    <header>
+                        <div class="header-top">
+                            <div class="wrap-head1">
+                                <div class="head1">
+                                    <ul>
+                                        <li>группа компаний "сеан"</li>
+                                        <li><span>ооо "сеан-аква"</span></li>
+                                        <li>ооо "wellform"</li>
+                                        <li>"сеан-кр"</li>
+                                        <li>"пск русский дом"</li>
+                                        <li>"проектное бюро"</li>
+                                        <li class="last"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="head2">
+                                <div class="logo">
+                                    <a href="{{ path('frontend_homepage') }}"></a>
+                                </div>
+                                <div class="right">
+                                    <div class="top">
+                                        <div class="phone">
+                                            Позвонить: (495) 664-30-69
+                                        </div>
+                                        <div class="email">
+                                            Написать: websean@mail.ru
+                                        </div>
+                                        <button>Заказать обратный звонок</button>
+                                        <div class="last"></div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="menu">
+                                            {{ knp_menu_render('SiteMainBundle:FrontendMenuBuilder:mainMenu') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="email">
-                            Написать: websean@mail.ru
-                        </div>
-                        <button>Заказать обратный звонок</button>
-                        <div class="last"></div>
-                    </div>
-                    <div class="bottom">
-                        <div class="menu">
-                            {{ knp_menu_render('SiteMainBundle:FrontendMenuBuilder:mainMenu') }}
-                        </div>
-                    </div>
+                        {% block content %}
+                        {% endblock %}
+                    </header>
+                    {% block footer %}
+                        <footer>
+                            <div class="wrap-footer1">
+                                <div class="footer1">
+                                    <div class="head">вы можете позвонить нам по телефону: +7 (495) 625-86-43</div>
+                                    <div class="buttons">
+                                        <a href="#" class="btn">написать нам</a>
+                                        <span>или</span>
+                                        <a href="#" class="btn">заказать обратный звонок</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer2"></div>
+                        </footer>
+                    {% endblock %}
+                    <!-- конец Шапка -->
                 </div>
             </div>
         </div>
-        {% block content %}
-        {% endblock %}
-    </header>
-    {% block footer %}
-        <footer>
-            <div class="wrap-footer1">
-                <div class="footer1">
-                    <div class="head">вы можете позвонить нам по телефону: +7 (495) 625-86-43</div>
-                    <div class="buttons">
-                        <a href="#" class="btn">написать нам</a>
-                        <span>или</span>
-                        <a href="#" class="btn">заказать обратный звонок</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer2"></div>
-        </footer>
-    {% endblock %}
-    <!-- конец Шапка -->
+    </div>
 {% endblock %}
 
 {% block javascripts %}
@@ -103,9 +115,12 @@
     <script src="{{ asset('bundles/sitemain/frontend/bower_components/slick.js/slick/slick.min.js') }}"></script>
     <script src="{{ asset('bundles/sitemain/frontend/bower_components/sticky/jquery.sticky.js') }}"></script>
     <script src="{{ asset('bundles/sitemain/frontend/bower_components/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('bundles/sitemain/frontend/bower_components/isInViewport/lib/isInViewport.min.js') }}"></script>
     <!-- endbuild -->
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
+    <script src="{{ asset('bundles/sitemain/frontend/scripts/SidebarTransitions/classie.js') }}"></script>
+    <script src="{{ asset('bundles/sitemain/frontend/scripts/SidebarTransitions/sidebarEffects.js') }}"></script>
     <script src="{{ asset('bundles/sitemain/frontend/scripts/wow.min.js') }}"></script>
     <script src="{{ asset('bundles/sitemain/frontend/scripts/jquery.ripples.js') }}"></script>
     <script src="{{ asset('bundles/sitemain/frontend/scripts/main.js') }}"></script>

@@ -34,24 +34,24 @@ $(function(){
     $("*[id='"+anchor.attr('href')+"']").show();
 
     if($prev.index() > $("*[id='"+anchor.attr('href')+"']").index()){
-      $(window).scrollTop($(window).scrollTop() + $("*[id='"+anchor.attr('href')+"']").height());
+      $('.wrap-container-box').scrollTop($(window).scrollTop() + $("*[id='"+anchor.attr('href')+"']").height());
     }
     if (!anchor.parent().hasClass('last')) {
       $('.menu-left li').removeClass('current');
       anchor.parent().addClass('current');
       if(anchor.attr('href') == $('.menu-left > ul > li:first > a').attr('href')){
-        $('body').stop().animate({
+        $('.wrap-container-box').stop().animate({
           scrollTop: 0
         }, 1000, function(){
           $prev.hide();
         });
       }else{
-        $('body').stop().animate({
+        $('.wrap-container-box').stop().animate({
           scrollTop: $("*[id='"+anchor.attr('href')+"']").offset().top
         }, 1000, function(){
           $prev.hide();
-          if($(window).scrollTop() > 181){
-            $(window).scrollTop(181);
+          if($('.wrap-container-box').scrollTop() > 181){
+            $('.wrap-container-box').scrollTop(181);
           }
         });
       }

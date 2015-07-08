@@ -20,8 +20,8 @@
       getWidthFrom: '',
       responsiveWidth: false
     },
-    $window = $(window),
-    $document = $(document),
+    $window = $('.wrap-container-box'),
+    $document = $('.container-box'),
     sticked = [],
     windowHeight = $window.height(),
     scroller = function() {
@@ -137,11 +137,11 @@
 
   // should be more efficient than using $window.scroll(scroller) and $window.resize(resizer):
   if (window.addEventListener) {
-    window.addEventListener('scroll', scroller, false);
-    window.addEventListener('resize', resizer, false);
+    document.getElementById('wrap-container-box').addEventListener('scroll', scroller, false);
+    document.getElementById('wrap-container-box').addEventListener('resize', resizer, false);
   } else if (window.attachEvent) {
-    window.attachEvent('onscroll', scroller);
-    window.attachEvent('onresize', resizer);
+    document.getElementById('wrap-container-box').attachEvent('onscroll', scroller);
+    document.getElementById('wrap-container-box').attachEvent('onresize', resizer);
   }
 
   $.fn.sticky = function(method) {

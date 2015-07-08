@@ -3,3 +3,44 @@ header .header-top {
   position: relative;
   width: 100%;
 }
+
+/* line 18, ../sass/children.sass */
+.wrap-container-box {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+/* line 26, ../sass/children.sass */
+.st-menu-news {
+  width: 50%;
+  background: #fff;
+}
+
+/* line 30, ../sass/children.sass */
+.blocks {
+  margin: 0px -25px;
+}
+/* line 32, ../sass/children.sass */
+.blocks h2.head-block {
+  color: #ab7f35;
+  font-family: "Segoe UI";
+  font-size: 18px;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 34px;
+}
+/* line 39, ../sass/children.sass */
+.blocks .wrap-block {
+  display: inline-block;
+  width: 33.33%;
+  margin-bottom: 40px;
+}
+/* line 43, ../sass/children.sass */
+.blocks .wrap-block .block {
+  margin: 0px 25px;
+  cursor: pointer;
+}
+/* line 46, ../sass/children.sass */
+.blocks .wrap-block .block img {
+  width: 100%;
+}
