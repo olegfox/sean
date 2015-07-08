@@ -1,0 +1,30 @@
+backend_block_index:
+    path:     /
+    defaults: { _controller: "SiteMainBundle:Backend/Block:index" }
+
+backend_block_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiteMainBundle:Backend/Block:show" }
+
+backend_block_new:
+    path:     /new
+    defaults: { _controller: "SiteMainBundle:Backend/Block:new" }
+
+backend_block_create:
+    path:     /create
+    defaults: { _controller: "SiteMainBundle:Backend/Block:create" }
+    methods:  POST
+
+backend_block_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiteMainBundle:Backend/Block:edit" }
+
+backend_block_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiteMainBundle:Backend/Block:update" }
+    methods:  [POST, PUT]
+
+backend_block_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiteMainBundle:Backend/Block:delete" }
+    methods:  [POST, DELETE]

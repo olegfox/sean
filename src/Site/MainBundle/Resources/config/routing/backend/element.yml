@@ -1,0 +1,30 @@
+backend_element_index:
+    path:     /
+    defaults: { _controller: "SiteMainBundle:Backend/Element:index" }
+
+backend_element_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiteMainBundle:Backend/Element:show" }
+
+backend_element_new:
+    path:     /new
+    defaults: { _controller: "SiteMainBundle:Backend/Element:new" }
+
+backend_element_create:
+    path:     /create
+    defaults: { _controller: "SiteMainBundle:Backend/Element:create" }
+    methods:  POST
+
+backend_element_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiteMainBundle:Backend/Element:edit" }
+
+backend_element_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiteMainBundle:Backend/Element:update" }
+    methods:  [POST, PUT]
+
+backend_element_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiteMainBundle:Backend/Element:delete" }
+    methods:  [POST, DELETE]

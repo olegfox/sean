@@ -54,7 +54,7 @@ var SidebarMenuEffects = (function() {
         ev.preventDefault();
         //container.className = 'st-menu-menu'; // clear
         document.getElementById( 'st-container').className = 'st-container';
-        //$('.' + selector2).html($.parseJSON($(this).data( 'text' )));
+        $('.' + selector2).html($.parseJSON($(this).data( 'text' )));
 
         //if (window.history.pushState) {
         //  window.history.pushState(null, null, $(this).data( 'href' ));

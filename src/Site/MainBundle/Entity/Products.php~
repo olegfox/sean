@@ -109,6 +109,11 @@ class Products
      */
     private $position = 0;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Block", cascade={"persist", "remove"}, mappedBy="product")
+     */
+    private $blocks;
+
     public function getAbsolutePath()
     {
         return null === $this->img
@@ -503,5 +508,28 @@ class Products
     public function getMain()
     {
         return $this->main;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Products
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 }

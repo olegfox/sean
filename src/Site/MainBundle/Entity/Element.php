@@ -8,12 +8,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Site\MainBundle\Entity\Comments
+ * Site\MainBundle\Entity\Elements
  *
- * @ORM\Table(name="comments")
- * @ORM\Entity(repositoryClass="Site\MainBundle\Entity\Repository\CommentsRepository")
+ * @ORM\Table(name="elements")
+ * @ORM\Entity(repositoryClass="Site\MainBundle\Entity\Repository\ElementsRepository")
  */
-class Comments
+class Element
 {
 
     /**
@@ -26,7 +26,7 @@ class Comments
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=100, nullable=false)
+     * @ORM\Column(name="title", type="string", length=100, nullable=true)
      */
     private $title;
 
@@ -35,39 +35,6 @@ class Comments
      * @ORM\Column(length=128, unique=true)
      */
     private $slug;
-
-    /**
-     * @ORM\Column(type="datetime", nullable=false)
-     */
-    private $date;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="meta_title", type="string", length=100, nullable=true)
-     */
-    private $metaTitle;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="meta_description", type="string", length=500, nullable=true)
-     */
-    private $metaDescription;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="meta_keywords", type="string", length=500, nullable=true)
-     */
-    private $metaKeywords;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text", nullable=true)
-     */
-    private $description;
 
     /**
      * @var string
@@ -85,6 +52,17 @@ class Comments
      * @Assert\File()
      */
     private $file;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $position = 0;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Block")
+     * @ORM\JoinColumn(name="block_id", referencedColumnName="id")
+     */
+    private $block;
 
     public function getAbsolutePath()
     {
@@ -107,7 +85,7 @@ class Comments
 
     protected function getUploadDir()
     {
-        return 'uploads/comments';
+        return 'uploads/elements';
     }
 
     /**
@@ -145,7 +123,7 @@ class Comments
             $this->img = null;
         }
 
-        $this->img = $this->getFile()->getClientOriginalName();
+        $this->img = uniqid() . '.' . $this->getFile()->getClientOriginalExtension();
 
         $this->getFile()->move(
             $this->getUploadDir(),
@@ -169,7 +147,7 @@ class Comments
      * Set title
      *
      * @param string $title
-     * @return Comments
+     * @return Element
      */
     public function setTitle($title)
     {
@@ -192,7 +170,7 @@ class Comments
      * Set slug
      *
      * @param string $slug
-     * @return Comments
+     * @return Element
      */
     public function setSlug($slug)
     {
@@ -212,125 +190,10 @@ class Comments
     }
 
     /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Comments
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
-     * Set metaTitle
-     *
-     * @param string $metaTitle
-     * @return Comments
-     */
-    public function setMetaTitle($metaTitle)
-    {
-        $this->metaTitle = $metaTitle;
-
-        return $this;
-    }
-
-    /**
-     * Get metaTitle
-     *
-     * @return string 
-     */
-    public function getMetaTitle()
-    {
-        return $this->metaTitle;
-    }
-
-    /**
-     * Set metaDescription
-     *
-     * @param string $metaDescription
-     * @return Comments
-     */
-    public function setMetaDescription($metaDescription)
-    {
-        $this->metaDescription = $metaDescription;
-
-        return $this;
-    }
-
-    /**
-     * Get metaDescription
-     *
-     * @return string 
-     */
-    public function getMetaDescription()
-    {
-        return $this->metaDescription;
-    }
-
-    /**
-     * Set metaKeywords
-     *
-     * @param string $metaKeywords
-     * @return Comments
-     */
-    public function setMetaKeywords($metaKeywords)
-    {
-        $this->metaKeywords = $metaKeywords;
-
-        return $this;
-    }
-
-    /**
-     * Get metaKeywords
-     *
-     * @return string 
-     */
-    public function getMetaKeywords()
-    {
-        return $this->metaKeywords;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Comments
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
      * Set text
      *
      * @param string $text
-     * @return Comments
+     * @return Element
      */
     public function setText($text)
     {
@@ -353,7 +216,7 @@ class Comments
      * Set img
      *
      * @param string $img
-     * @return Comments
+     * @return Element
      */
     public function setImg($img)
     {
@@ -370,5 +233,51 @@ class Comments
     public function getImg()
     {
         return $this->img;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Element
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set block
+     *
+     * @param \Site\MainBundle\Entity\Block $block
+     * @return Element
+     */
+    public function setBlock(\Site\MainBundle\Entity\Block $block = null)
+    {
+        $this->block = $block;
+
+        return $this;
+    }
+
+    /**
+     * Get block
+     *
+     * @return \Site\MainBundle\Entity\Block 
+     */
+    public function getBlock()
+    {
+        return $this->block;
     }
 }

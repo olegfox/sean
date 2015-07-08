@@ -25,3 +25,11 @@ backend_products:
 backend_comments:
     resource: "@SiteMainBundle/Resources/config/routing/backend/comments.yml"
     prefix: /comments
+
+backend_block:
+    resource: "@SiteMainBundle/Resources/config/routing/backend/block.yml"
+    prefix: /block
+
+backend_element:
+    resource: "@SiteMainBundle/Resources/config/routing/backend/element.yml"
+    prefix: /element

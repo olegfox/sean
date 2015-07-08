@@ -50,7 +50,7 @@ class Media
     private $text;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $preview;
 
@@ -81,17 +81,7 @@ class Media
     private $metaKeywords;
 
     /**
-     * @ORM\OneToOne(targetEntity="MediaVideo", mappedBy="media")
-     **/
-    private $video;
-
-    /**
-     * Ссылка на видео в форме
-     **/
-    private $videoUrl;
-
-    /**
-     * @ORM\OneToMany(targetEntity="MediaPhoto", mappedBy="media")
+     * @ORM\OneToMany(targetEntity="MediaPhoto", mappedBy="media", cascade={"persist", "remove"})
      **/
     private $photos;
 
@@ -99,6 +89,26 @@ class Media
      * Список фото из формы
      **/
     private $gallery;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $audio;
+
+    /**
+     * @Assert\File()
+     */
+    private $fileAudio;
+
+    /**
+     * @ORM\OneToOne(targetEntity="MediaVideo", mappedBy="media", cascade={"persist", "remove"})
+     **/
+    private $video;
+
+    /**
+     * Ссылка на видео в форме
+     **/
+    private $videoUrl;
 
     /**
      * @Gedmo\Timestampable(on="create")
@@ -180,6 +190,76 @@ class Media
 
         $this->file = null;
     }
+
+    public function getAbsolutePathAudio()
+    {
+        return null === $this->audio
+            ? null
+            : $this->getUploadRootDirAudio().'/'.$this->audio;
+    }
+
+    public function getWebPathAudio()
+    {
+        return null === $this->audio
+            ? null
+            : $this->getUploadDirAudio().'/'.$this->audio;
+    }
+
+    protected function getUploadRootDirAudio()
+    {
+        return __DIR__.'/../../../../../'.$this->getUploadDirAudio();
+    }
+
+    protected function getUploadDirAudio()
+    {
+        return 'uploads/audio';
+    }
+
+    /**
+     * Sets fileAudio.
+     *
+     * @param UploadedFile $fileAudio
+     */
+    public function setFileAudio(UploadedFile $fileAudio = null)
+    {
+        $this->fileAudio = $fileAudio;
+
+        $this->uploadAudio();
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFileAudio()
+    {
+        return $this->fileAudio;
+    }
+
+    public function uploadAudio()
+    {
+        if (null === $this->getFileAudio()) {
+            return;
+        }
+
+        if (isset($this->audio)) {
+            if(file_exists($this->getUploadDirAudio().'/'.$this->audio)){
+                unlink($this->getUploadDirAudio().'/'.$this->audio);
+            }
+            $this->audio = null;
+        }
+
+        $this->audio = $this->getFileAudio()->getClientOriginalName();
+
+        $this->getFileAudio()->move(
+            $this->getUploadDirAudio(),
+            $this->audio
+        );
+
+        $this->fileAudio = null;
+    }
+
     /**
      * Constructor
      */
@@ -383,41 +463,6 @@ class Media
     }
 
     /**
-     * Set video
-     *
-     * @param \Site\MainBundle\Entity\MediaVideo $video
-     * @return Media
-     */
-    public function setVideo(\Site\MainBundle\Entity\MediaVideo $video = null)
-    {
-        $this->video = $video;
-
-        return $this;
-    }
-
-    /**
-     * Get video
-     *
-     * @return \Site\MainBundle\Entity\MediaVideo 
-     */
-    public function getVideo()
-    {
-        return $this->video;
-    }
-
-    public function setVideoUrl($videoUrl)
-    {
-        $this->videoUrl = $videoUrl;
-
-        return $this;
-    }
-
-    public function getVideoUrl()
-    {
-        return $this->videoUrl;
-    }
-
-    /**
      * Add photos
      *
      * @param \Site\MainBundle\Entity\MediaPhoto $photos
@@ -448,6 +493,18 @@ class Media
     public function getPhotos()
     {
         return $this->photos;
+    }
+
+    public function getGallery()
+    {
+        return $this->gallery;
+    }
+
+    public function setGallery($gallery)
+    {
+        $this->gallery = $gallery;
+
+        return $this;
     }
 
     /**
@@ -494,5 +551,101 @@ class Media
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * @ORM\PreRemove
+     */
+    public function deleteAllPhotos()
+    {
+        $photos = $this->getPhotos();
+
+        foreach ($photos as $photo) {
+            if(file_exists($photo->getLink())){
+                unlink($photo->getLink());
+            }
+        }
+    }
+
+    public function genPreview()
+    {
+        //$content = strtolower($this->content);
+        $content = $this->text;
+
+        preg_match_all('/<img([^>]+)>/i', $content, $img_tags, PREG_OFFSET_CAPTURE);
+        if (count($img_tags[0]) > 1) {
+            $offset = $img_tags[0][1][1];
+            $content = mb_substr($content, 0, $offset);
+        }
+
+        $preview = $content;
+        if (mb_strlen($preview) > 1200) {
+            preg_match("/[\.!\?]+[\s<]+/i", $content, $matches, PREG_OFFSET_CAPTURE, 800);
+
+            if (count($matches) > 0) {
+                $offset = $matches[0][1];
+                $length = strlen($matches[0][0]);
+
+                $preview = mb_substr($content, 0, $offset + 1);
+            }
+        }
+
+        preg_match_all("/<\s*(\w+)\s*>/i", $preview, $tags);
+
+        foreach ($tags[1] as $tag) {
+            $tag = trim($tag);
+            if ($tag == "br")
+                continue;
+            if ($tag == "p")
+                continue;
+            $opened = preg_match_all("/<\s*{$tag}\s*>/i", $preview, $arr);
+            $closed = preg_match_all("/<\s*\/\s*{$tag}\s*>/i", $preview, $arr);
+            //$opened = substr_count($preview, "<$tag");
+            //$closed = substr_count($preview, "</$tag");
+            if ($opened > $closed) {
+                $preview .= "</$tag>";
+            }
+        }
+
+        $preview = preg_replace('#<([a-z]+)[^<>]*>\s*</\\1>\s*$#', '', $preview);
+
+        $this->preview = $preview;
+
+        return $preview;
+    }
+
+    /**
+     * Set video
+     *
+     * @param \Site\MainBundle\Entity\MediaVideo $video
+     * @return Media
+     */
+    public function setVideo(\Site\MainBundle\Entity\MediaVideo $video = null)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return \Site\MainBundle\Entity\MediaVideo
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    public function setVideoUrl($videoUrl)
+    {
+        $this->videoUrl = $videoUrl;
+
+        return $this;
+    }
+
+    public function getVideoUrl()
+    {
+        return $this->videoUrl;
     }
 }

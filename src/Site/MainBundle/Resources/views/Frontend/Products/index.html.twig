@@ -16,10 +16,7 @@
 {% endblock %}
 
 {% block stMenu %}
-    <nav class="st-menu st-menu-news st-effect-1" id="st-menu-block">
-        <p>
-            Текст
-        </p>
+    <nav class="st-menu st-menu-block st-effect-1" id="st-menu-block">
     </nav>
 {% endblock %}
 
@@ -44,37 +41,26 @@
                 <div class="wrap_text">
                     <div class="text">
                         {{ p.text|raw }}
-                        <div class="blocks">
 
-                            <h2 class="head-block">три этапа</h2>
+                        {% if p.blocks|length > 0 %}
+                            {% for block in p.blocks %}
+                                {{ block.textTop|raw }}
 
-                            <div class="wrap-block">
-                                <div class="block">
-                                    <img src="{{ asset('bundles/sitemain/frontend/images/block.png') }}" alt=""/>
-                                </div>
-                            </div><div class="wrap-block">
-                                <div class="block">
-                                    <img src="{{ asset('bundles/sitemain/frontend/images/block.png') }}" alt=""/>
-                                </div>
-                            </div><div class="wrap-block">
-                                <div class="block">
-                                    <img src="{{ asset('bundles/sitemain/frontend/images/block.png') }}" alt=""/>
-                                </div>
-                            </div><div class="wrap-block">
-                                <div class="block">
-                                    <img src="{{ asset('bundles/sitemain/frontend/images/block.png') }}" alt=""/>
-                                </div>
-                            </div><div class="wrap-block">
-                                <div class="block">
-                                    <img src="{{ asset('bundles/sitemain/frontend/images/block.png') }}" alt=""/>
-                                </div>
-                            </div><div class="wrap-block">
-                                <div class="block">
-                                    <img src="{{ asset('bundles/sitemain/frontend/images/block.png') }}" alt=""/>
-                                </div>
-                            </div>
+                                <div class="blocks">
 
-                        </div>
+                                    <h2 class="head-block">{{ block.title|lower }}</h2>
+
+                                    {% for element in block.elements %}<div class="wrap-block">
+                                            <div class="block" data-text="{{ element.text|json_encode }}">
+                                                <img src="{{ image(element.webPath).zoomCrop(220, 228) }}" alt=""/>
+                                            </div>
+                                        </div>{% endfor %}
+
+                                </div>
+
+                                {{ block.textBottom|raw }}
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
                 <!-- end Text -->

@@ -109,6 +109,11 @@ class Products
      */
     private $position = 0;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Block", cascade={"persist", "remove"}, mappedBy="product")
+     */
+    private $blocks;
+
     public function getAbsolutePath()
     {
         return null === $this->img
@@ -526,5 +531,38 @@ class Products
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * Add blocks
+     *
+     * @param \Site\MainBundle\Entity\Block $blocks
+     * @return Products
+     */
+    public function addBlock(\Site\MainBundle\Entity\Block $blocks)
+    {
+        $this->blocks[] = $blocks;
+
+        return $this;
+    }
+
+    /**
+     * Remove blocks
+     *
+     * @param \Site\MainBundle\Entity\Block $blocks
+     */
+    public function removeBlock(\Site\MainBundle\Entity\Block $blocks)
+    {
+        $this->blocks->removeElement($blocks);
+    }
+
+    /**
+     * Get blocks
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBlocks()
+    {
+        return $this->blocks;
     }
 }

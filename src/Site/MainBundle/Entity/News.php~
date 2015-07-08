@@ -16,11 +16,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class News
 {
 
-    const EVENT_CHAMPIONSHIP = 0;
-    const EVENT_CUP = 1;
-    const EVENT_EUROPA_LEAGUE = 2;
-    const EVENT_YOUTH_CHAMPIONSHIP = 3;
-
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -42,19 +37,9 @@ class News
     private $slug;
 
     /**
-     * @ORM\Column(type="date", nullable=false)
+     * @ORM\Column(type="datetime", nullable=false)
      */
     private $date;
-
-    /**
-     * @ORM\Column(type="smallint", nullable=false)
-     */
-    private $type = 0;
-
-    /**
-     * @ORM\Column(type="smallint", nullable=true)
-     */
-    private $typeEvent;
 
     /**
      * @var string
@@ -92,7 +77,7 @@ class News
     private $text;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $img;
 
@@ -122,7 +107,7 @@ class News
 
     protected function getUploadDir()
     {
-        return 'uploads/partners';
+        return 'uploads/news';
     }
 
     /**
@@ -227,29 +212,6 @@ class News
     }
 
     /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return News
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
      * Set type
      *
      * @param integer $type
@@ -260,52 +222,6 @@ class News
         $this->type = $type;
 
         return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return integer 
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    public function getTypeText()
-    {
-        switch($this->type){
-            case 0: {
-                return 'backend.news.type_choice.events';
-            }break;
-            case 1: {
-                return 'backend.news.type_choice.interviews';
-            }break;
-            case 2: {
-                return 'backend.news.type_choice.opinion';
-            }break;
-            default: {
-                return 'backend.news.type_choice.events';
-            }break;
-        }
-    }
-
-    public function getTypeUrl()
-    {
-        switch($this->type){
-            case 0: {
-                return 'events';
-            }break;
-            case 1: {
-                return 'interviews';
-            }break;
-            case 2: {
-                return 'opinion';
-            }break;
-            default: {
-                return 'events';
-            }break;
-        }
     }
 
     /**
@@ -444,5 +360,28 @@ class News
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return News
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }

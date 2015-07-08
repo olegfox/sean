@@ -1,0 +1,70 @@
+<?php
+
+namespace Site\MainBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
+/**
+ * Block
+ *
+ * @ORM\Table(name="blocks")
+ * @ORM\Entity(repositoryClass="Site\MainBundle\Entity\Repository\BlockRepository")
+ */
+class Block
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=100, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="text_top", type="text", nullable=true)
+     */
+    private $textTop;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="text_bottom", type="text", nullable=true)
+     */
+    private $textBottom;
+
+    /**
+     * @var integer
+     * @Gedmo\SortablePosition
+     * @ORM\Column(name="position", type="integer", nullable=true)
+     */
+    private $position = 0;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Element", cascade={"persist", "remove"}, mappedBy="block")
+     */
+    private $elements;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Products")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     */
+    private $product;
+
+}

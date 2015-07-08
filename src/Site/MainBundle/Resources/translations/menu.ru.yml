@@ -112,6 +112,37 @@ backend:
         validation:
             title: Вы не ввели заголовок!
             date: Вы не ввели дату!
+    block:
+        h1_show: Блоки в продуктах
+        h1_list: Список блоков
+        h1_edit: Редактирование блока
+        h1_create: Добавление блока
+        back_to_list: Назад к списку блоков
+        empty_list: Нет блоков
+        product: Продукт
+        title: Название блока
+        textTop: Текст в начале блока
+        textBottom: Текст в конце блока
+        position: Позиция
+        not_found: Блок не существует
+        validation:
+            title: Вы не ввели название блока!
+            date: Вы не ввели дату!
+    element:
+        h1_show: Элементы блоков в продуктах
+        h1_list: Список элементов
+        h1_edit: Редактирование элемента
+        h1_create: Добавление элемента
+        back_to_list: Назад к списку элементов
+        empty_list: Нет элементов
+        block: Блок
+        title: Название элемента
+        text: Текст
+        img: Изображение
+        position: Позиция
+        not_found: Элемент не существует
+        validation:
+            title: Вы не ввели название элемента!
     actions: Действия
     show: показать
     edit: редактировать

@@ -155,4 +155,27 @@ class MediaVideo
     {
         return $this->preview_image_url;
     }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return MediaVideo
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
 }
