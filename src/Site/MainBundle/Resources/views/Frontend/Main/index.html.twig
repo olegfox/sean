@@ -2,6 +2,11 @@
 
 {#{% from 'SiteMainBundle:Frontend/News:macros.html.twig' import listTab %}#}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/sitemain/frontend/scripts/SidebarTransitions/component.css') }}">
+{% endblock %}
+
 {% block content %}
     <div class="background-video">
         <div class="video" id="video"></div>

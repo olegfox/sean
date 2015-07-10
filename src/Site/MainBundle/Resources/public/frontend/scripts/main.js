@@ -82,14 +82,8 @@ $(function () {
    * Portfolio
    /* ---------------------------------------------- */
 
-  if($('.block-portfolio .gallery').length > 0){
-    $(".block-portfolio .gallery").each(function(i, e){
-      $(e).unbind('click').click(function(){
-        Code.photoSwipe('a', this);
-        Code.PhotoSwipe.Current.show(0);
-        return false;
-      });
-    });
-  }
+    if($('.block-portfolio').length > 0){
+        Code.photoSwipe('a', '.block-portfolio');
+    }
 
 });

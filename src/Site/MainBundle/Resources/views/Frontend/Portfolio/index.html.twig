@@ -32,11 +32,8 @@
                                         <a href="{{ asset(p.webPath) }}" rel="group{{ p.id }}">
                                             <img src="{{ image(p.webPath).zoomCrop(347, 213) }}" alt=""/>
                                         </a>
-                                        {% for i in p.images %}
-                                            <a href="{{ asset(i.img) }}" class="hide" rel="group{{ p.id }}"></a>
-                                        {% endfor %}
                                     </div>
-                                    <a href="#" class="name">{{ p.title }}</a>
+                                    <div class="name">{{ p.title }}</div>
                                 </div>
                                 </div>{% endfor %}
                         </div>

@@ -47,16 +47,6 @@ class Portfolio
      */
     private $position = 0;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Image", mappedBy="portfolio", cascade={"persist", "remove"})
-     **/
-    private $images;
-
-    /**
-     * Список фото из формы
-     **/
-    private $gallery;
-
     public function getAbsolutePath()
     {
         return null === $this->img
@@ -226,57 +216,5 @@ class Portfolio
     public function getPosition()
     {
         return $this->position;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add images
-     *
-     * @param \Site\MainBundle\Entity\Image $images
-     * @return Portfolio
-     */
-    public function addImage(\Site\MainBundle\Entity\Image $images)
-    {
-        $this->images[] = $images;
-
-        return $this;
-    }
-
-    /**
-     * Remove images
-     *
-     * @param \Site\MainBundle\Entity\Image $images
-     */
-    public function removeImage(\Site\MainBundle\Entity\Image $images)
-    {
-        $this->images->removeElement($images);
-    }
-
-    /**
-     * Get images
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getImages()
-    {
-        return $this->images;
-    }
-
-    public function getGallery()
-    {
-        return $this->gallery;
-    }
-
-    public function setGallery($gallery)
-    {
-        $this->gallery = $gallery;
-
-        return $this;
     }
 }

@@ -23,14 +23,6 @@ class PortfolioType extends AbstractType
                 'required' => false,
                 'label' => 'backend.portfolio.img'
             ))
-            ->add('gallery', 'file', array(
-                'required' => false,
-                'label' => 'backend.portfolio.images',
-                'attr' => array(
-                    'class' => 'uploadify',
-                    'multiple' => true
-                )
-            ))
             ->add('description', 'textarea', array(
                 'required' => false,
                 'label' => 'backend.portfolio.description'

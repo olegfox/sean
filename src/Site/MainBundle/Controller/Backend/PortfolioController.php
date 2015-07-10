@@ -50,21 +50,6 @@ class PortfolioController extends Controller
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-//          Добавляем фотки в портфолио
-            $imagesJson = $request->get('gallery');
-            if ($imagesJson) {
-
-                $images = json_decode($imagesJson);
-
-                foreach ($images as $image) {
-                    $img = new Image();
-                    $img->setImg("uploads/portfolio/" . $image);
-                    $img->setPortfolio($entity);
-                    $em->persist($img);
-                }
-
-            }
-
             $em->persist($entity);
             $em->flush();
 
@@ -194,38 +179,6 @@ class PortfolioController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-
-//          Добавляем фотки в портфолио
-            $imagesJson = $request->get('gallery');
-            if ($imagesJson) {
-
-                $images = json_decode($imagesJson);
-
-                foreach ($images as $image) {
-                    $img = new Image();
-                    $img->setImg("uploads/portfolio/" . $image);
-                    $img->setPortfolio($entity);
-                    $em->persist($img);
-                }
-
-            }
-
-//          Удаляем фотки из портфолио, отмеченные на удаление
-            $images = $request->get('images');
-
-            if(is_array($images)){
-                foreach($images as $image){
-                    $repository_image = $this->getDoctrine()->getRepository('SiteMainBundle:Image');
-                    $imageObject = $repository_image->find($image);
-
-                    if($imageObject){
-                        if(file_exists($imageObject->getImg())){
-                            unlink($imageObject->getImg());
-                        }
-                        $em->remove($imageObject);
-                    }
-                }
-            }
 
             $em->flush();
 
