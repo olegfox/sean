@@ -1,0 +1,44 @@
+{% extends 'SiteMainBundle:Frontend:layout.html.twig' %}
+
+{% block title %}{{ page.metaTitle }}{% endblock %}
+{% block meta_description %}{{ page.metaDescription }}{% endblock %}
+{% block meta_keywords %}{{ page.metaKeywords }}{% endblock %}
+{% block og_title %}{{ page.metaTitle }}{% endblock %}
+{% block og_description %}{{ page.metaDescription }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/sitemain/frontend/scripts/SidebarTransitions/component.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/sitemain/frontend/styles/children.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/sitemain/frontend/styles/page.css') }}">
+{% endblock %}
+
+{% block top %}
+    <div class="wrap-video">
+        <div class="video" id="video"></div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="content_portfolio">
+            <div class="wrap_block_portfolio">
+                <div class="inner_block_portfolio">
+                    <div class="block-portfolio">
+                        {% if page.slug == "kontakty" %}
+                            <div class="map">
+                                <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=7MQDyITlyUKBAz8AQNmKVWZgdmrro0vL&width=100%&height=450"></script>
+                            </div>
+                        {% endif %}
+                        {{ page.text|raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+{% endblock %}

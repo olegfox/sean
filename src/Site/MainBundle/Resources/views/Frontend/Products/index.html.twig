@@ -48,11 +48,14 @@
 
                                 <div class="blocks">
 
-                                    <h2 class="head-block">{{ block.title|lower }}</h2>
+                                    <h2 class="head-block">{{ block.title }}</h2>
 
                                     {% for element in block.elements %}<div class="wrap-block">
-                                            <div class="block" data-text="{{ element.text|json_encode }}">
+                                            <div class="block" data-text="{{ (render(url('frontend_element_content', {slug : element.slug})))|json_encode }}">
                                                 <img src="{{ image(element.webPath).zoomCrop(220, 228) }}" alt=""/>
+                                                <div class="title">
+                                                    {{ element.title }}
+                                                </div>
                                             </div>
                                         </div>{% endfor %}
 

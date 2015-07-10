@@ -1,5 +1,10 @@
 {% extends 'SiteMainBundle:Backend:layout.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/sitemain/backend/js/uploadify/uploadify.css') }}" rel="stylesheet"/>
+{% endblock %}
+
 {% block content -%}
     <h1>{{ 'backend.element.h1_create'|trans({}, 'menu') }}</h1>
 
@@ -12,4 +17,10 @@
             </a>
         </li>
     </ul>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/sitemain/backend/js/uploadify/jquery.uploadify.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/sitemain/backend/js/init_uploadify_slider.js') }}"></script>
 {% endblock %}

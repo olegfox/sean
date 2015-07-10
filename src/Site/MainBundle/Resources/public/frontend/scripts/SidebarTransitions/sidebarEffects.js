@@ -56,6 +56,26 @@ var SidebarMenuEffects = (function() {
         document.getElementById( 'st-container').className = 'st-container';
         $('.' + selector2).html($.parseJSON($(this).data( 'text' )));
 
+        $('.st-menu .close').click(function(){
+          resetMenu();
+        });
+
+        $('.st-menu .slider').imagesLoaded( function() {
+          setTimeout(function(){
+            // Init Slider
+            $('.st-menu .slider').slick({
+              dots: true,
+              infinite: true,
+              speed: 500,
+              fade: false,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              autoplay: false,
+              autoplaySpeed: 2000
+            });
+          }, 200);
+        });
+
         $('.st-menu-block').css({
           'width' : $('.wrap_text > .text').width() + ($(document).width() - $('.wrap_text > .text').width())/2 - 105
         });

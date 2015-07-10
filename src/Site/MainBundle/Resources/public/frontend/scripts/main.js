@@ -51,31 +51,45 @@ $(function () {
     });
   });
 
-    /* ---------------------------------------------- /*
-     * Wow Effects
-     /* ---------------------------------------------- */
+  /* ---------------------------------------------- /*
+   * Wow Effects
+   /* ---------------------------------------------- */
 
-    function wowInit(){
-        var wow = new WOW(
-            {
-                boxClass: 'wow',      // animated element css class (default is wow)
-                animateClass: 'animated', // animation css class (default is animated)
-                offset: 0,          // distance to the element when triggering the animation (default is 0)
-                mobile: true,       // trigger animations on mobile devices (default is true)
-                live: true        // act on asynchronously loaded content (default is true),
-            }
-        );
-        wow.init();
-    }
+  function wowInit(){
+      var wow = new WOW(
+        {
+          boxClass: 'wow',      // animated element css class (default is wow)
+          animateClass: 'animated', // animation css class (default is animated)
+          offset: 0,          // distance to the element when triggering the animation (default is 0)
+          mobile: true,       // trigger animations on mobile devices (default is true)
+          live: true        // act on asynchronously loaded content (default is true),
+        }
+      );
+      wow.init();
+  }
 
+  wowInit();
+  $(window).resize(function(){
     wowInit();
-    $(window).resize(function(){
-        wowInit();
-    });
+  });
 
-    var scrollable = $('.wrap-container-box');
-    scrollable.on('scroll.wow', function(){
-        scrollable.find('.wow:not(.animated):in-viewport').removeAttr('style').addClass('animated');
+  var scrollable = $('.wrap-st-content, .wrap-st-content .st-content');
+  scrollable.on('scroll.wow', function(){
+    scrollable.find('.wow:not(.animated):in-viewport').removeAttr('style').addClass('animated');
+  });
+
+  /* ---------------------------------------------- /*
+   * Portfolio
+   /* ---------------------------------------------- */
+
+  if($('.block-portfolio .gallery').length > 0){
+    $(".block-portfolio .gallery").each(function(i, e){
+      $(e).unbind('click').click(function(){
+        Code.photoSwipe('a', this);
+        Code.PhotoSwipe.Current.show(0);
+        return false;
+      });
     });
+  }
 
 });

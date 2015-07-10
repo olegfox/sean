@@ -124,13 +124,13 @@ jQuery.fn.topLink = function(settings) {
 
                 el.fadeIn(settings.fadeSpeed);
                 ael.css({
-                    "background" : "url(./images/top-page.png) center center no-repeat"
+                    "background" : "url(/bundles/sitemain/frontend/images/top-page.png) center center no-repeat"
                 });
                 ael.removeClass('bottom_button').addClass('top_button');
             } else {
                 if (pos2 != 0) {
                     ael.css({
-                        "background" : "url(./images/bottom-page.png) center center no-repeat"
+                        "background" : "url(/bundles/sitemain/frontend/images/bottom-page.png) center center no-repeat"
                     });
                     ael.removeClass('top_button').addClass('bottom_button');
                 }

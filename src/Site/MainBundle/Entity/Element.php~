@@ -26,7 +26,7 @@ class Element
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=100, nullable=false)
+     * @ORM\Column(name="title", type="string", length=100, nullable=true)
      */
     private $title;
 
@@ -63,6 +63,11 @@ class Element
      * @ORM\JoinColumn(name="block_id", referencedColumnName="id")
      */
     private $block;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Slider", mappedBy="element", cascade={"persist", "remove"})
+     **/
+    private $slider;
 
     public function getAbsolutePath()
     {
@@ -123,7 +128,7 @@ class Element
             $this->img = null;
         }
 
-        $this->img = $this->getFile()->getClientOriginalName();
+        $this->img = uniqid() . '.' . $this->getFile()->getClientOriginalExtension();
 
         $this->getFile()->move(
             $this->getUploadDir(),
@@ -131,5 +136,153 @@ class Element
         );
 
         $this->file = null;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Element
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Element
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return Element
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * Set img
+     *
+     * @param string $img
+     * @return Element
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * Get img
+     *
+     * @return string 
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Element
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set block
+     *
+     * @param \Site\MainBundle\Entity\Block $block
+     * @return Element
+     */
+    public function setBlock(\Site\MainBundle\Entity\Block $block = null)
+    {
+        $this->block = $block;
+
+        return $this;
+    }
+
+    /**
+     * Get block
+     *
+     * @return \Site\MainBundle\Entity\Block 
+     */
+    public function getBlock()
+    {
+        return $this->block;
     }
 }

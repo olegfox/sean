@@ -10,9 +10,9 @@ backend_media:
     resource: "@SiteMainBundle/Resources/config/routing/backend/media.yml"
     prefix: /media
 
-backend_photo_biography:
-    resource: "@SiteMainBundle/Resources/config/routing/backend/photo_biography.yml"
-    prefix: /photo_biography
+backend_portfolio:
+    resource: "@SiteMainBundle/Resources/config/routing/backend/portfolio.yml"
+    prefix: /portfolio
 
 backend_news:
     resource: "@SiteMainBundle/Resources/config/routing/backend/news.yml"

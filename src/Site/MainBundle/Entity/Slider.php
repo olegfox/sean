@@ -1,0 +1,90 @@
+<?php
+
+namespace Site\MainBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Site\MainBundle\Entity\Slider
+ *
+ * @ORM\Table(name="slider")
+ * @ORM\Entity(repositoryClass="Site\MainBundle\Entity\Repository\SliderRepository")
+ */
+class Slider
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $img;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Element", inversedBy="slider")
+     * @ORM\JoinColumn(name="element_id", referencedColumnName="id")
+     **/
+    private $element;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set img
+     *
+     * @param string $img
+     * @return Slider
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * Get img
+     *
+     * @return string 
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * Set element
+     *
+     * @param \Site\MainBundle\Entity\Element $element
+     * @return Slider
+     */
+    public function setElement(\Site\MainBundle\Entity\Element $element = null)
+    {
+        $this->element = $element;
+
+        return $this;
+    }
+
+    /**
+     * Get element
+     *
+     * @return \Site\MainBundle\Entity\Element 
+     */
+    public function getElement()
+    {
+        return $this->element;
+    }
+}

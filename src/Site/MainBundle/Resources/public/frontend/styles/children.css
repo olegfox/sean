@@ -28,13 +28,21 @@ header .header-top {
   display: inline-block;
   width: 33.33%;
   margin-bottom: 40px;
+  vertical-align: top;
 }
-/* line 39, ../sass/children.sass */
+/* line 40, ../sass/children.sass */
 .blocks .wrap-block .block {
   margin: 0px 25px;
   cursor: pointer;
 }
-/* line 42, ../sass/children.sass */
+/* line 43, ../sass/children.sass */
+.blocks .wrap-block .block .title {
+  font-family: "Segoe UI";
+  font-size: 14px;
+  text-align: center;
+  padding-top: 5px;
+}
+/* line 48, ../sass/children.sass */
 .blocks .wrap-block .block img {
   width: 100%;
 }

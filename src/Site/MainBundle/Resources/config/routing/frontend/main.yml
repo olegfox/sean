@@ -15,6 +15,14 @@ frontend_products:
     resource: "@SiteMainBundle/Resources/config/routing/frontend/products.yml"
     prefix: /products
 
-frontend_page_index:
-    path:     /{slug}
-    defaults: { _controller: "SiteMainBundle:Frontend/Main:index" }
+frontend_element:
+    resource: "@SiteMainBundle/Resources/config/routing/frontend/element.yml"
+    prefix: /elements
+
+frontend_portfolio:
+    resource: "@SiteMainBundle/Resources/config/routing/frontend/portfolio.yml"
+    prefix: /portfolio
+
+frontend_page:
+    resource: "@SiteMainBundle/Resources/config/routing/frontend/page.yml"
+    prefix: /

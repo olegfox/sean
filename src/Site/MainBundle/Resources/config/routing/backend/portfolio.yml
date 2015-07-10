@@ -1,0 +1,30 @@
+backend_portfolio_index:
+    path:     /
+    defaults: { _controller: "SiteMainBundle:Backend/Portfolio:index" }
+
+backend_portfolio_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiteMainBundle:Backend/Portfolio:show" }
+
+backend_portfolio_new:
+    path:     /new
+    defaults: { _controller: "SiteMainBundle:Backend/Portfolio:new" }
+
+backend_portfolio_create:
+    path:     /create
+    defaults: { _controller: "SiteMainBundle:Backend/Portfolio:create" }
+    methods:  POST
+
+backend_portfolio_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiteMainBundle:Backend/Portfolio:edit" }
+
+backend_portfolio_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiteMainBundle:Backend/Portfolio:update" }
+    methods:  [POST, PUT]
+
+backend_portfolio_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiteMainBundle:Backend/Portfolio:delete" }
+    methods:  [POST, DELETE]

@@ -24,6 +24,14 @@ class ElementType extends AbstractType
                 'required' => true,
                 'label' => 'backend.element.title'
             ))
+            ->add('sliderGallery', 'file', array(
+                'required' => false,
+                'label' => 'backend.element.sliderGallery',
+                'attr' => array(
+                    'class' => 'uploadifySlider',
+                    'multiple' => true
+                )
+            ))
             ->add('file', 'file', array(
                 'required' => false,
                 'label' => 'backend.element.img'

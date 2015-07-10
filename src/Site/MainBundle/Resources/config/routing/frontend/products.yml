@@ -3,3 +3,4 @@ frontend_products_one:
     defaults: { _controller: "SiteMainBundle:Frontend/Products:one" }
     requirements:
       permalink: .+
+
