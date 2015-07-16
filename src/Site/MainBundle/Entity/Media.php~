@@ -648,4 +648,27 @@ class Media
     {
         return $this->videoUrl;
     }
+
+    /**
+     * Set audio
+     *
+     * @param string $audio
+     * @return Media
+     */
+    public function setAudio($audio)
+    {
+        $this->audio = $audio;
+
+        return $this;
+    }
+
+    /**
+     * Get audio
+     *
+     * @return string 
+     */
+    public function getAudio()
+    {
+        return $this->audio;
+    }
 }

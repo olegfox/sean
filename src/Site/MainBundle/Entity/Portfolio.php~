@@ -47,16 +47,6 @@ class Portfolio
      */
     private $position = 0;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Image", mappedBy="portfolio", cascade={"persist", "remove"})
-     **/
-    private $images;
-
-    /**
-     * Список фото из формы
-     **/
-    private $gallery;
-
     public function getAbsolutePath()
     {
         return null === $this->img

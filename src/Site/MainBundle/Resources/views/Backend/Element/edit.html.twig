@@ -13,6 +13,9 @@
     {{ form_start(edit_form, { 'style': 'horizontal' , attr: {novalidate: 'novalidate'} }) }}
     {{ form_row(edit_form.block) }}
     {{ form_row(edit_form.title) }}
+    {{ form_row(edit_form.metaTitle) }}
+    {{ form_row(edit_form.metaDescription) }}
+    {{ form_row(edit_form.metaKeywords) }}
     {% if entity.slider|length > 0 %}
         <table class="table">
             <thead>

@@ -15,6 +15,18 @@
             <th>{{ 'backend.element.block'|trans({}, 'menu') }}</th>
             <td>{{ entity.block.title }}</td>
         </tr>
+        <tr>
+            <th>{{ 'backend.element.metaTitle'|trans({}, 'menu') }}</th>
+            <td>{{ entity.block.metaTitle }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.element.metaDescription'|trans({}, 'menu') }}</th>
+            <td>{{ entity.block.metaDescription }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.element.metaKeywords'|trans({}, 'menu') }}</th>
+            <td>{{ entity.block.metaKeywords }}</td>
+        </tr>
         {% if entity.webPath %}
             <tr>
                 <th>{{ 'backend.element.img'|trans({}, 'menu') }}</th>

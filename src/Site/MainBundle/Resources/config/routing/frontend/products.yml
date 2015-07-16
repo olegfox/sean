@@ -1,6 +1,12 @@
+frontend_element_one:
+    path:     /{permalink}/element/{slug}
+    defaults: { _controller: "SiteMainBundle:Frontend/Products:one" }
+    requirements:
+      permalink: .+
+
 frontend_products_one:
     path:     /{permalink}
-    defaults: { _controller: "SiteMainBundle:Frontend/Products:one" }
+    defaults: { _controller: "SiteMainBundle:Frontend/Products:one", slug: null }
     requirements:
       permalink: .+
 

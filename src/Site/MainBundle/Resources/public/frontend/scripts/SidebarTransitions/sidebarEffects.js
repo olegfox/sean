@@ -37,6 +37,9 @@ var SidebarMenuEffects = (function() {
       resetMenu = function() {
         classie.remove( container, 'st-menu-open' );
         classie.remove( document.getElementById( 'st-container' ), 'st-menu-open' );
+        if (window.history.pushState) {
+          window.history.back();
+        }
       },
       bodyClickFn = function(evt) {
         if( !hasParentClass( evt.target, 'st-menu' ) ) {
@@ -80,9 +83,9 @@ var SidebarMenuEffects = (function() {
           'width' : $('.wrap_text > .text').width() + ($(document).width() - $('.wrap_text > .text').width())/2 - 105
         });
 
-        //if (window.history.pushState) {
-        //  window.history.pushState(null, null, $(this).data( 'href' ));
-        //}
+        if (window.history.pushState) {
+          window.history.pushState(null, null, $(this).data( 'href' ));
+        }
 
         classie.add( container, effect );
         classie.add( document.getElementById( 'st-container' ), effect );

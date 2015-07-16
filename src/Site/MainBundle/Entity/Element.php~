@@ -31,6 +31,27 @@ class Element
     private $title;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_title", type="string", length=100, nullable=true)
+     */
+    private $metaTitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_description", type="string", length=500, nullable=true)
+     */
+    private $metaDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_keywords", type="string", length=500, nullable=true)
+     */
+    private $metaKeywords;
+
+    /**
      * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(length=128, unique=true)
      */
@@ -68,6 +89,11 @@ class Element
      * @ORM\OneToMany(targetEntity="Slider", mappedBy="element", cascade={"persist", "remove"})
      **/
     private $slider;
+
+    /**
+     * Список фото из формы
+     **/
+    private $sliderGallery;
 
     public function getAbsolutePath()
     {
@@ -284,5 +310,71 @@ class Element
     public function getBlock()
     {
         return $this->block;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->slider = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add slider
+     *
+     * @param \Site\MainBundle\Entity\Slider $slider
+     * @return Element
+     */
+    public function addSlider(\Site\MainBundle\Entity\Slider $slider)
+    {
+        $this->slider[] = $slider;
+
+        return $this;
+    }
+
+    /**
+     * Remove slider
+     *
+     * @param \Site\MainBundle\Entity\Slider $slider
+     */
+    public function removeSlider(\Site\MainBundle\Entity\Slider $slider)
+    {
+        $this->slider->removeElement($slider);
+    }
+
+    /**
+     * Get slider
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSlider()
+    {
+        return $this->slider;
+    }
+
+    public function getSliderGallery()
+    {
+        return $this->sliderGallery;
+    }
+
+    public function setSliderGallery($sliderGallery)
+    {
+        $this->sliderGallery = $sliderGallery;
+
+        return $this;
+    }
+
+    /**
+     * @ORM\PreRemove
+     */
+    public function deleteAllSlider()
+    {
+        $sliders = $this->getSlider();
+
+        foreach ($sliders as $slider) {
+            if(file_exists($slider->getImg())){
+                unlink($slider->getImg());
+            }
+        }
     }
 }

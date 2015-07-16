@@ -31,4 +31,60 @@ class Slider
      * @ORM\JoinColumn(name="element_id", referencedColumnName="id")
      **/
     private $element;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set img
+     *
+     * @param string $img
+     * @return Slider
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
+
+        return $this;
+    }
+
+    /**
+     * Get img
+     *
+     * @return string 
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * Set element
+     *
+     * @param \Site\MainBundle\Entity\Element $element
+     * @return Slider
+     */
+    public function setElement(\Site\MainBundle\Entity\Element $element = null)
+    {
+        $this->element = $element;
+
+        return $this;
+    }
+
+    /**
+     * Get element
+     *
+     * @return \Site\MainBundle\Entity\Element 
+     */
+    public function getElement()
+    {
+        return $this->element;
+    }
 }

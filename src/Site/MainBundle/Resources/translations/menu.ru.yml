@@ -135,6 +135,9 @@ backend:
         h1_create: Добавление элемента
         back_to_list: Назад к списку элементов
         empty_list: Нет элементов
+        metatitle: Мета-заголовок
+        metadescription: Мета-описание
+        metakeywords: Ключевые слова
         block: Блок
         title: Название элемента
         text: Текст

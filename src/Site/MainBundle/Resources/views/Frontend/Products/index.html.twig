@@ -3,6 +3,12 @@
 {% from 'SiteMainBundle:Frontend/Products:macros.html.twig' import menuLeft %}
 {% from 'SiteMainBundle:Frontend/Products:macros.html.twig' import breadcrumbs %}
 
+{% block title %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaTitle }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaTitle }}{% endif %}{% endblock %}
+{% block meta_description %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaDescription }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaDescription }}{% endif %}{% endblock %}
+{% block meta_keywords %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaKeywords }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaKeywords }}{% endif %}{% endblock %}
+{% block og_title %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaTitle }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaTitle }}{% endif %}{% endblock %}
+{% block og_description %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaDescription }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaDescription }}{% endif %}{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/sitemain/frontend/scripts/SidebarTransitions/component.css') }}">
@@ -51,7 +57,7 @@
                                     <h2 class="head-block">{{ block.title }}</h2>
 
                                     {% for element in block.elements %}<div class="wrap-block">
-                                            <div class="block" data-text="{{ (render(url('frontend_element_content', {slug : element.slug})))|json_encode }}">
+                                            <div class="block" data-text="{{ (render(url('frontend_element_content', {slug : element.slug})))|json_encode }}" data-href="{{ path('frontend_element_one', {permalink: element.block.product.permalink,slug : element.slug}) }}">
                                                 <img src="{{ image(element.webPath).zoomCrop(220, 228) }}" alt=""/>
                                                 <div class="title">
                                                     {{ element.title }}
@@ -96,6 +102,9 @@
                         }
                     });
 //                }
+                {% if app.request.attributes.get('_route') == 'frontend_element_one' %}
+                    $('*[data-href="{{ path('frontend_element_one', {'permalink' : app.request.get('permalink'), 'slug' : app.request.get('slug')}) }}"]').click();
+                {% endif %}
             });
         </script>
     {% endif %}

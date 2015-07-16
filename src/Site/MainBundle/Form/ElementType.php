@@ -24,6 +24,18 @@ class ElementType extends AbstractType
                 'required' => true,
                 'label' => 'backend.element.title'
             ))
+            ->add('metaTitle', 'text', array(
+                'required' => false,
+                'label' => 'backend.element.metatitle'
+            ))
+            ->add('metaDescription', 'textarea', array(
+                'required' => false,
+                'label' => 'backend.element.metadescription'
+            ))
+            ->add('metaKeywords', 'text', array(
+                'required' => false,
+                'label' => 'backend.element.metakeywords'
+            ))
             ->add('sliderGallery', 'file', array(
                 'required' => false,
                 'label' => 'backend.element.sliderGallery',
