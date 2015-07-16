@@ -55,7 +55,8 @@ $(function () {
    * Wow Effects
    /* ---------------------------------------------- */
 
-  function wowInit(){
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) == false){
+    function wowInit(){
       var wow = new WOW(
         {
           boxClass: 'wow',      // animated element css class (default is wow)
@@ -66,14 +67,20 @@ $(function () {
         }
       );
       wow.init();
+    }
+
+    wowInit();
+    $(window).resize(function(){
+      wowInit();
+    });
   }
 
-  wowInit();
-  $(window).resize(function(){
-    wowInit();
-  });
+  if($(".wrap-container-box").length > 0){
+      var scrollable = $('.wrap-container-box');
+  }else{
+      var scrollable = $('.wrap-st-content .st-content');
+  }
 
-  var scrollable = $('.wrap-st-content, .wrap-st-content .st-content');
   scrollable.on('scroll.wow', function(){
     scrollable.find('.wow:not(.animated):in-viewport').removeAttr('style').addClass('animated');
   });
@@ -82,8 +89,8 @@ $(function () {
    * Portfolio
    /* ---------------------------------------------- */
 
-    if($('.block-portfolio').length > 0){
-        Code.photoSwipe('a', '.block-portfolio');
+    if($('.block-portfolio .gallery').length > 0){
+        Code.photoSwipe('a', '.inner_block_portfolio');
     }
 
 });

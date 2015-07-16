@@ -84,7 +84,7 @@
     {% if app.request.get('permalink') %}
         <script type="text/javascript">
             $(function(){
-                if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+//                if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                     $(".content").hide();
                     $("*[id='{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}']").show();
                     $(window).load(function () {
@@ -95,7 +95,7 @@
                             $('body').scrollTop($("*[id='{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}']").offset().top);
                         }
                     });
-                }
+//                }
             });
         </script>
     {% endif %}
