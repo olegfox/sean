@@ -93,4 +93,56 @@ $(function () {
         Code.photoSwipe('a', '.inner_block_portfolio');
     }
 
+    /* ---------------------------------------------- /*
+     * Forms
+     /* ---------------------------------------------- */
+
+    $(".callback").colorbox({
+        html: $(".callback-form").html(),
+        onComplete: function(){
+            $("#cboxContent form").validate({
+                messages: {
+                    "site_mainbundle_callback[name]": "Введите имя!",
+                    "site_mainbundle_callback[phone]": "Введите телефон!"
+                },
+                showErrors: function(errorMap, errorList) {
+                    this.defaultShowErrors();
+                    $.colorbox.resize();
+                },
+                submitHandler: function(form) {
+                    $(form).ajaxSubmit({
+                        beforeSubmit: function(arr, $form, options) {
+                            $("#cboxLoadedContent").html('<div class="alert alert-success" role="alert">Сообщение успешно отправлено!</div>');
+                            $.colorbox.resize();
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+    $(".feedback").colorbox({
+        html: $(".contact-form").html(),
+        onComplete: function(){
+            $("#cboxContent form").validate({
+                messages: {
+                    "site_mainbundle_feedback[name]": "Введите имя!",
+                    "site_mainbundle_feedback[email]": "Введите email!"
+                },
+                showErrors: function(errorMap, errorList) {
+                    this.defaultShowErrors();
+                    $.colorbox.resize();
+                },
+                submitHandler: function(form) {
+                    $(form).ajaxSubmit({
+                        beforeSubmit: function(arr, $form, options) {
+                            $("#cboxLoadedContent").html('<div class="alert alert-success" role="alert">Сообщение успешно отправлено!</div>');
+                            $.colorbox.resize();
+                        }
+                    });
+                }
+            });
+        }
+    });
+
 });

@@ -24,7 +24,7 @@ class FeedbackType extends AbstractType
                 )
             ))
             ->add('phone', 'text', array(
-                'required' => true,
+                'required' => false,
                 'label' => false,
                 'attr' => array(
                     'placeholder' => 'frontend.feedback.placeholder.phone',
@@ -40,7 +40,7 @@ class FeedbackType extends AbstractType
                 )
             ))
             ->add('theme', 'text', array(
-                'required' => true,
+                'required' => false,
                 'label' => false,
                 'attr' => array(
                     'placeholder' => 'frontend.feedback.placeholder.theme',
@@ -48,7 +48,7 @@ class FeedbackType extends AbstractType
                 )
             ))
             ->add('message', 'text', array(
-                'required' => true,
+                'required' => false,
                 'label' => false,
                 'attr' => array(
                     'placeholder' => 'frontend.feedback.placeholder.message',

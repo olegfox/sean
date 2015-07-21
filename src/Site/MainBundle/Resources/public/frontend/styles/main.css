@@ -634,7 +634,7 @@ footer .wrap-footer1 .footer1 .head {
   margin-bottom: 25px;
 }
 /* line 442, ../sass/main.sass */
-footer .wrap-footer1 .footer1 a {
+footer .wrap-footer1 .footer1 div.btn {
   display: inline-block;
   background: #002d66;
   color: #fff;
@@ -648,7 +648,7 @@ footer .wrap-footer1 .footer1 a {
   text-transform: uppercase;
 }
 /* line 452, ../sass/main.sass */
-footer .wrap-footer1 .footer1 a:hover {
+footer .wrap-footer1 .footer1 div.btn:hover {
   color: #fff;
 }
 /* line 454, ../sass/main.sass */
@@ -926,4 +926,27 @@ footer .footer2 {
   header .background-video .grid .wrap-box .box a, header .block-portfolio .grid .wrap-box .box a {
     margin-bottom: 0px;
   }
+}
+/* line 646, ../sass/main.sass */
+.callback-form, .contact-form {
+  display: none;
+}
+
+/* line 648, ../sass/main.sass */
+#callback-form, #contact-form {
+  padding: 30px;
+}
+/* line 650, ../sass/main.sass */
+#callback-form input.error, #contact-form input.error {
+  border: red solid 1px;
+}
+/* line 652, ../sass/main.sass */
+#callback-form label.error, #contact-form label.error {
+  font-size: 12px;
+  color: red;
+}
+
+/* line 656, ../sass/main.sass */
+#cboxLoadedContent .alert {
+  margin: 30px;
 }

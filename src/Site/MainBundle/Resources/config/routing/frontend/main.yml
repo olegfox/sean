@@ -5,7 +5,10 @@ frontend_homepage:
 frontend_feedback:
     path:     /feedback
     defaults: { _controller: "SiteMainBundle:Frontend/Main:feedback" }
-    methods:  POST
+
+frontend_callback:
+    path:     /callback
+    defaults: { _controller: "SiteMainBundle:Frontend/Main:callback" }
 
 frontend_media:
     resource: "@SiteMainBundle/Resources/config/routing/frontend/media.yml"
