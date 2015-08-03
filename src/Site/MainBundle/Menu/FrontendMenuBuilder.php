@@ -35,6 +35,15 @@ class FrontendMenuBuilder extends ContainerAware
                         'route' => 'frontend_page_index',
                         'routeParameters' => array('slug' => $m->getSlug())
                     ));
+                if($m->getSlug() == 'intierniet-maghazin'){
+                    $menu
+                        ->addChild($m->getTitle(), array(
+                            'uri' => 'https://store7336267.ecwid.com/',
+                            'linkAttributes' => array(
+                                'target' => '_blank'
+                            )
+                        ));
+                }
             }
         }
 

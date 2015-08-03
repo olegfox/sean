@@ -80,7 +80,7 @@ var SidebarMenuEffects = (function() {
         });
 
         $('.st-menu-block').css({
-          'width' : $('.wrap_text > .text').width() + ($(document).width() - $('.wrap_text > .text').width())/2 - 105
+          'width' : $('.wrap_text > .text').width() + ($(document).width() - $('.wrap_text > .text').width())/2 - 96
         });
 
         if (window.history.pushState) {
