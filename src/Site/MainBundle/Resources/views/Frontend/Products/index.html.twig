@@ -37,47 +37,45 @@
         </div>
         <!-- end Left menu -->
 
-        {% for p in products2 %}
-            <!-- Content -->
-            <div class="content" id="{{ path('frontend_products_one', {'permalink' : p.permalink}) }}">
+        <!-- Content -->
+        <div class="content">
 
-                <div class="wrap_head"><div class="head">{{ p.title }}</div></div>
+            <div class="wrap_head"><div class="head">{{ product.title }}</div></div>
 
-                <!-- Text -->
-                <div class="wrap_text">
-                    <div class="text">
-                        {{ p.text|raw }}
+            <!-- Text -->
+            <div class="wrap_text">
+                <div class="text">
+                    {{ product.text|raw }}
 
-                        {% if p.blocks|length > 0 %}
-                            {% for block in p.blocks %}
-                                {{ block.textTop|raw }}
+                    {% if product.blocks|length > 0 %}
+                        {% for block in product.blocks %}
+                            {{ block.textTop|raw }}
 
-                                <div class="blocks">
+                            <div class="blocks">
 
-                                    <h2 class="head-block">{{ block.title }}</h2>
+                                <h2 class="head-block">{{ block.title }}</h2>
 
-                                    {% for element in block.elements %}<div class="wrap-block">
-                                            <div class="block" data-text="{{ (render(url('frontend_element_content', {slug : element.slug})))|json_encode }}" data-href="{{ path('frontend_element_one', {permalink: element.block.product.permalink,slug : element.slug}) }}">
-                                                <img src="{{ image(element.webPath).zoomCrop(220, 228) }}" alt=""/>
-                                                <div class="title">
-                                                    {{ element.title }}
-                                                </div>
+                                {% for element in block.elements %}<div class="wrap-block">
+                                        <div class="block" data-text="{{ (render(url('frontend_element_content', {slug : element.slug})))|json_encode }}" data-href="{{ path('frontend_element_one', {permalink: element.block.product.permalink,slug : element.slug}) }}">
+                                            <img src="{{ image(element.webPath).zoomCrop(220, 228) }}" alt=""/>
+                                            <div class="title">
+                                                {{ element.title }}
                                             </div>
-                                        </div>{% endfor %}
+                                        </div>
+                                    </div>{% endfor %}
 
-                                </div>
+                            </div>
 
-                                {{ block.textBottom|raw }}
-                            {% endfor %}
-                        {% endif %}
-                    </div>
+                            {{ block.textBottom|raw }}
+                        {% endfor %}
+                    {% endif %}
                 </div>
-                <!-- end Text -->
-
-                <div class="footer"></div>
             </div>
-            <!-- end Content -->
-        {% endfor %}
+            <!-- end Text -->
+
+            <div class="footer"></div>
+        </div>
+        <!-- end Content -->
     </div>
 {% endblock %}
 
@@ -90,18 +88,6 @@
     {% if app.request.get('permalink') %}
         <script type="text/javascript">
             $(function(){
-//                if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                    $(".content").hide();
-                    $("*[id='{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}']").show();
-                    $(window).load(function () {
-                        $("a[href='{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}']").parent().addClass('current');
-                        if("{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}" == $('.menu-left > ul > li:first > a').attr('href')){
-                            $('body').scrollTop(0);
-                        }else{
-                            $('body').scrollTop($("*[id='{{ path('frontend_products_one', {'permalink' : app.request.get('permalink')}) }}']").offset().top);
-                        }
-                    });
-//                }
                 {% if app.request.attributes.get('_route') == 'frontend_element_one' %}
                     $('*[data-href="{{ path('frontend_element_one', {'permalink' : app.request.get('permalink'), 'slug' : app.request.get('slug')}) }}"]').click();
                 {% endif %}
