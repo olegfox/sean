@@ -50,6 +50,13 @@ class PageType extends AbstractType
                     "class" => "ckeditor"
                 )
             ))
+            ->add('textBottom', 'textarea', array(
+                'required' => false,
+                'label' => 'backend.page.textBottom',
+                "attr" => array(
+                    "class" => "ckeditor"
+                )
+            ))
         ;
     }
     

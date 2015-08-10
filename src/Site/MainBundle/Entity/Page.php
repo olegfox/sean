@@ -64,6 +64,13 @@ class Page
     private $text;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="text_bottom", type="text", nullable=true)
+     */
+    private $textBottom;
+
+    /**
      * @var \Page
      *
      * @ORM\ManyToOne(targetEntity="Page")
@@ -322,5 +329,28 @@ class Page
     public function getChildren()
     {
         return $this->children;
+    }
+
+    /**
+     * Set textBottom
+     *
+     * @param string $textBottom
+     * @return Page
+     */
+    public function setTextBottom($textBottom)
+    {
+        $this->textBottom = $textBottom;
+
+        return $this;
+    }
+
+    /**
+     * Get textBottom
+     *
+     * @return string 
+     */
+    public function getTextBottom()
+    {
+        return $this->textBottom;
     }
 }

@@ -11,6 +11,9 @@ class ProductsController extends Controller
         $repository_products = $this->getDoctrine()->getRepository('SiteMainBundle:Products');
 
         $product = $repository_products->findOneByPermalink($permalink);
+        if(!is_object($product)){
+            $product = $repository_products->findOneBySlug($permalink);
+        }
         $products = $repository_products->findAllWithoutParent();
 
         $params = array(

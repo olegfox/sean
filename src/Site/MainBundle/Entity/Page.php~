@@ -64,6 +64,13 @@ class Page
     private $text;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="text_bottom", type="text", nullable=true)
+     */
+    private $textBottom;
+
+    /**
      * @var \Page
      *
      * @ORM\ManyToOne(targetEntity="Page")

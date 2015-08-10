@@ -11,6 +11,7 @@ backend:
         metadescription: Мета-описание
         metakeywords: Ключевые слова
         text: Текст страницы
+        textBottom: Текст внизу страницы
         position: Позиция в меню
         parent: Родитель
         not_found: Страница не существует

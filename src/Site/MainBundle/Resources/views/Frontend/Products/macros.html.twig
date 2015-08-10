@@ -3,7 +3,7 @@
     {% for p in products %}
         {% if p.hideMenu == 0 %}
             <li>
-                <a href="{{ path('frontend_products_one', {'permalink' : p.permalink}) }}">
+                <a href="{{ path('frontend_products_one', {'permalink' : p.permalink}) }}" {% if app.request.get('permalink') == p.permalink %}class="current"{% endif %}>
                     {{ p.title }}
                 </a>
                 {% if p.children %}

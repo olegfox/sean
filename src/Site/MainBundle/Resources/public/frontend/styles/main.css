@@ -15,10 +15,12 @@ html, body {
 
 /* line 24, ../sass/main.sass */
 .wrap-video {
-  display: block;
-  position: absolute;
-  height: 100%;
-  width: 100%;
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -100%;
+    margin-top: 181px;
 }
 /* line 29, ../sass/main.sass */
 .wrap-video .video {
@@ -285,7 +287,7 @@ header .container .menu-left ul {
 }
 /* line 205, ../sass/main.sass */
 header .container .menu-left li {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 /* line 207, ../sass/main.sass */
 header .container .menu-left li a {
@@ -294,7 +296,8 @@ header .container .menu-left li a {
   color: #000000;
 }
 /* line 211, ../sass/main.sass */
-header .container .menu-left li a:hover {
+header .container .menu-left li a:hover,
+header .container .menu-left li a.current{
   color: #c28a1d;
 }
 /* line 214, ../sass/main.sass */
@@ -303,7 +306,7 @@ header .container .menu-left li.current > a {
 }
 /* line 219, ../sass/main.sass */
 header .container .menu-left > ul > li > ul {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 /* line 222, ../sass/main.sass */
 header .container .menu-left > ul > li > ul > li > a {
@@ -671,8 +674,34 @@ footer .wrap-footer1 .footer1 span {
 footer .footer2 {
   background: #e5e5e5;
   height: 80px;
+  line-height: 80px;
 }
-
+footer .footer2{
+    font-size: 0;
+}
+footer .footer2 .inner{
+    max-width: 1090px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+footer .footer2 a{
+    color: #000;
+    text-decoration: none;
+}
+footer .footer2 .left,
+footer .footer2 .right{
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    font-size: 14px;
+    line-height: 18px;
+}
+footer .footer2 .left{
+    text-align: left;
+}
+footer .footer2 .right{
+    text-align: right;
+}
 /* line 471, ../sass/main.sass */
 #undefined-sticky-wrapper {
   position: absolute;

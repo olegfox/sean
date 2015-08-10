@@ -458,7 +458,7 @@ class Products
     public function getPermalink()
     {
         if (null === $this->parent) {
-            return $this->slug;
+            return $this->getSlug();
         }
 
         return $this->permalink = $this->parent->getPermalink().'/'.$this->slug;

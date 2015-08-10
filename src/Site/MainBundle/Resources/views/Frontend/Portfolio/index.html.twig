@@ -24,6 +24,7 @@
         <div class="content_portfolio">
             <div class="wrap_block_portfolio">
                 <div class="inner_block_portfolio">
+                    {{ page.text|raw }}
                     <div class="block-portfolio">
                         <div class="grid">
                             {% for p in portfolio %}<div class="wrap-box">
@@ -33,11 +34,14 @@
                                             <img src="{{ image(p.webPath).zoomCrop(347, 213) }}" alt=""/>
                                         </a>
                                     </div>
-                                    <div class="name">{{ p.title }}</div>
+                                    {% if p.title|length > 0 %}
+                                        <div class="name">{{ p.title }}</div>
+                                    {% endif %}
                                 </div>
                                 </div>{% endfor %}
                         </div>
                     </div>
+                    {{ page.textBottom|raw }}
                 </div>
             </div>
         </div>

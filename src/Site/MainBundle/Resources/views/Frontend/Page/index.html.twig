@@ -22,14 +22,14 @@
 {% block content %}
     <div class="container">
         <div class="content_portfolio">
+            {% if page.slug == "kontakty" %}
+                <div class="map">
+                    <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=7MQDyITlyUKBAz8AQNmKVWZgdmrro0vL&width=100%&height=450"></script>
+                </div>
+            {% endif %}
             <div class="wrap_block_portfolio">
                 <div class="inner_block_portfolio">
                     <div class="block-portfolio">
-                        {% if page.slug == "kontakty" %}
-                            <div class="map">
-                                <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=7MQDyITlyUKBAz8AQNmKVWZgdmrro0vL&width=100%&height=450"></script>
-                            </div>
-                        {% endif %}
                         {{ page.text|raw }}
                     </div>
                 </div>
