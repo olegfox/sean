@@ -197,7 +197,7 @@ header .background-video .video, header .block-portfolio .video {
 header .background-video .grid, header .block-portfolio .grid {
   position: relative;
   max-width: 1070px;
-  margin: -572px auto 0px auto;
+  margin: -560px auto 0px auto;
   padding: 0px 15px;
 }
 /* line 143, ../sass/main.sass */
@@ -487,6 +487,8 @@ header .content .breadcrumbs ul li span.line, header .content_portfolio .breadcr
 section .block0 {
   background: #fff;
   text-align: center;
+    border-top: solid 5px #e5e5e5;
+    margin-top: 20px;
 }
 /* line 281, ../sass/main.sass */
 section .block0 h2 {
@@ -526,7 +528,7 @@ section .block0 .grid .wrap-box .box .name {
 }
 /* line 307, ../sass/main.sass */
 section .block0 .grid .wrap-box .box .name.last {
-  padding-top: 70px;
+
 }
 @media (max-width: 1200px) {
   /* line 301, ../sass/main.sass */
@@ -601,6 +603,7 @@ section .block2 {
   position: relative;
   text-align: center;
   padding-bottom: 1px;
+  border-top: solid 5px #e5e5e5;
 }
 /* line 362, ../sass/main.sass */
 section .block2 .video {
