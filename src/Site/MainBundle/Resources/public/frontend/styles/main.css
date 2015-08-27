@@ -122,22 +122,25 @@ header .head2 div.right div.top div.last {
 }
 /* line 95, ../sass/main.sass */
 header .head2 div.right div.top .phone, header .head2 div.right div.top .email {
-  color: #fff;
+  color: #000;
   font-size: 16px;
-  text-shadow: 1px 1px 1px black;
+  /*text-shadow: 1px 1px 1px black;*/
 }
 /* line 99, ../sass/main.sass */
 header .head2 div.right div.top button {
   display: inline-block;
   height: 30px;
   padding: 0px 15px;
-  color: #fff;
+  color: #000;
   font-size: 16px;
-  -moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /*-moz-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+  /*-webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
   background: rgba(255, 255, 255, 0.5);
-  border: #fff solid 1px;
+  border: #000 solid 1px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 header .head2 div.right div.top button:focus{
     outline: 0;
@@ -162,20 +165,20 @@ header .head2 div.right div.bottom .menu ul li.last {
 }
 /* line 119, ../sass/main.sass */
 header .head2 div.right div.bottom .menu ul li a {
-  color: #fff;
+  color: #000;
   font-size: 18px;
   text-decoration: none;
   padding: 0px;
-  text-shadow: 1px 1px 1px black;
+  /*text-shadow: 1px 1px 1px black;*/
 }
 /* line 125, ../sass/main.sass */
 header .head2 div.right div.bottom .menu ul li a:hover, header .head2 div.right div.bottom .menu ul li a:focus, header .head2 div.right div.bottom .menu ul li a:active {
-  color: #fff;
+  color: #000;
   background: none;
 }
 /* line 129, ../sass/main.sass */
 header .head2 div.right div.bottom .menu ul li.current a {
-  color: #fff;
+  color: #000;
 }
 /* line 132, ../sass/main.sass */
 header .background-video, header .block-portfolio {
@@ -221,6 +224,11 @@ header .background-video .grid .wrap-box .box a, header .block-portfolio .grid .
   overflow: hidden;
   margin-bottom: -6px;
   background: #000;
+}
+header .background-video .grid .wrap-box .box a.first{
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
 }
 /* line 161, ../sass/main.sass */
 header .background-video .grid .wrap-box .box a:focus, header .block-portfolio .grid .wrap-box .box a:focus {
@@ -329,7 +337,7 @@ header .content, header .content_portfolio {
 /* line 233, ../sass/main.sass */
 header .content .wrap_head, header .content_portfolio .wrap_head {
   padding-top: 29px;
-  background: #fff; 
+  background: #fff;
 }
 /* line 236, ../sass/main.sass */
 header .content .wrap_head .head, header .content_portfolio .wrap_head .head {
@@ -355,7 +363,10 @@ header .content .wrap_text, header .content .wrap_block_portfolio, header .conte
 header .content .wrap_text .text, header .content .wrap_text .inner_block_portfolio, header .content .wrap_block_portfolio .text, header .content .wrap_block_portfolio .inner_block_portfolio, header .content_portfolio .wrap_text .text, header .content_portfolio .wrap_text .inner_block_portfolio, header .content_portfolio .wrap_block_portfolio .text, header .content_portfolio .wrap_block_portfolio .inner_block_portfolio {
   max-width: 1070px;
   margin: 0 auto;
-  padding: 40px 47px 40px 254px;
+  padding: 10px 47px 40px 254px;
+}
+header .content .wrap_text .text img{
+    margin-top: 5px;
 }
 /* line 251, ../sass/main.sass */
 header .content .wrap_text .text.inner_block_portfolio, header .content .wrap_text .inner_block_portfolio.inner_block_portfolio, header .content .wrap_block_portfolio .text.inner_block_portfolio, header .content .wrap_block_portfolio .inner_block_portfolio.inner_block_portfolio, header .content_portfolio .wrap_text .text.inner_block_portfolio, header .content_portfolio .wrap_text .inner_block_portfolio.inner_block_portfolio, header .content_portfolio .wrap_block_portfolio .text.inner_block_portfolio, header .content_portfolio .wrap_block_portfolio .inner_block_portfolio.inner_block_portfolio {
@@ -810,7 +821,7 @@ footer .wrap-footer1 .footer1 span {
 /* line 539, ../sass/main.sass */
 .st-menu > .close {
   position: absolute;
-  top: 15px;
+  top: 35px;
   right: 55px;
   background: url("../images/cross.png") 0 0 no-repeat;
   background-size: contain;

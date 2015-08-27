@@ -12,7 +12,7 @@ header .header-top {
 
 /* line 26, ../sass/children.sass */
 .blocks {
-  margin: 0px -25px;
+  margin: 0px -7px;
 }
 /* line 28, ../sass/children.sass */
 .blocks h2.head-block {
@@ -32,7 +32,7 @@ header .header-top {
 }
 /* line 40, ../sass/children.sass */
 .blocks .wrap-block .block {
-  margin: 0px 25px;
+  margin: 0px 7px;
   cursor: pointer;
 }
 /* line 43, ../sass/children.sass */
@@ -45,4 +45,7 @@ header .header-top {
 /* line 48, ../sass/children.sass */
 .blocks .wrap-block .block img {
   width: 100%;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
