@@ -63,6 +63,14 @@ class ProductsType extends AbstractType
                     1 => 'Да'
                 )
             ))
+            ->add('relax', 'choice', array(
+                'required' => true,
+                'label' => 'backend.products.relax',
+                'choices' => array(
+                    0 => 'Нет',
+                    1 => 'Да'
+                )
+            ))
             ->add('position', null, array(
                 'required' => true,
                 'label' => 'backend.products.position'

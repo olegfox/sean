@@ -181,6 +181,9 @@ header .head2 div.right div.bottom .menu ul li.current a {
   color: #000;
 }
 /* line 132, ../sass/main.sass */
+header .background-video{
+    background: url('../images/bg.png') 0 120px no-repeat;
+}
 header .background-video, header .block-portfolio {
   height: 702px;
   margin-top: 51px;
@@ -248,6 +251,78 @@ header .background-video .grid .wrap-box .box .name, header .block-portfolio .gr
   text-transform: uppercase;
   z-index: 1000;
 }
+
+
+/* line 138, ../sass/main.sass */
+section .block-1{
+    text-align: center;
+}
+section .block-1 h2 {
+    color: #000;
+    font-size: 16px;
+    padding: 20px 0 25px 0;
+    margin: 0;
+    text-transform: uppercase;
+}
+header .block-1 .grid {
+    position: relative;
+    max-width: 1070px;
+    padding: 0px 15px;
+    margin: 0 auto;
+}
+/* line 143, ../sass/main.sass */
+header .block-1 .grid .wrap-box {
+    display: inline-block;
+    width: 33.33%;
+    vertical-align: top;
+    margin-bottom: 14px;
+}
+/* line 148, ../sass/main.sass */
+header .block-1 .grid .wrap-box .box {
+    margin: 0px 7px;
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+/* line 153, ../sass/main.sass */
+header .block-1 .grid .wrap-box .box a {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    color: #000000;
+    overflow: hidden;
+    margin-bottom: -6px;
+    background: #000;
+}
+header .block-1 .grid .wrap-box .box a.first{
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+/* line 161, ../sass/main.sass */
+header .block-1 .grid .wrap-box .box a:focus {
+    overflow: hidden;
+}
+/* line 163, ../sass/main.sass */
+header .block-1 .grid .wrap-box .box img {
+    visibility: hidden;
+}
+/* line 165, ../sass/main.sass */
+header .block-1 .grid .wrap-box .box .name {
+    position: relative;
+    font-size: 14px;
+    padding: 10px 15px 12px 15px;
+    background: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 1000;
+}
+
+
 /* line 173, ../sass/main.sass */
 header .block-portfolio {
   height: auto;

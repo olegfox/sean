@@ -21,8 +21,20 @@
         </div>
     </div>
     <section id="main" class="main">
+        <div class="block-1">
+            <h2>Релакс</h2>
+            <div class="grid grid-main">
+                {% for product in productsRelax %}<div class="wrap-box">
+                    <div class="box">
+                        {% set link = path('frontend_products_one', {'permalink' : product.permalink}) %}
+                        <a href="{{ link }}" class="first" style="background: url('{{ asset(product.webPath) }}');"><img src="{{ asset(product.webPath) }}" alt=""/></a>
+                        <a href="{{ link }}" class="name">{{ product.title }}</a>
+                    </div>
+                    </div>{% endfor %}
+            </div>
+        </div>
         <div class="block0">
-            <h2>почему стоит выбрать нас?</h2>
+            <h2>почему нужно выбрать нас?</h2>
             <div class="grid">
                 <div class="wrap-box">
                     <div class="box">

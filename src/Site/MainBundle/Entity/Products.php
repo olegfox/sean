@@ -105,6 +105,11 @@ class Products
     private $main;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $relax;
+
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $position = 0;
@@ -564,5 +569,28 @@ class Products
     public function getBlocks()
     {
         return $this->blocks;
+    }
+
+    /**
+     * Set relax
+     *
+     * @param boolean $relax
+     * @return Products
+     */
+    public function setRelax($relax)
+    {
+        $this->relax = $relax;
+
+        return $this;
+    }
+
+    /**
+     * Get relax
+     *
+     * @return boolean 
+     */
+    public function getRelax()
+    {
+        return $this->relax;
     }
 }

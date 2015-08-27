@@ -23,10 +23,12 @@ class MainController extends Controller
 
         $pages = $repository_page->findAll();
         $products = $repository_products->findAllWithoutParentOnMain();
+        $productsRelax = $repository_products->findAllWithoutParentOnRelax();
 
         return $this->render('SiteMainBundle:Frontend/Main:index.html.twig', array(
             'pages' => $pages,
-            'products' => $products
+            'products' => $products,
+            'productsRelax' => $productsRelax
         ));
     }
 

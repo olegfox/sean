@@ -45,4 +45,22 @@ class ProductsRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    /**
+     * Продукты в разделе Релакс
+     *
+     * @return array
+     */
+    public function findAllWithoutParentOnRelax(){
+        $em = $this->getEntityManager();
+
+        $query = $em->createQuery('
+            SELECT p FROM SiteMainBundle:Products p
+            WHERE p.parent IS NULL
+            AND p.relax = 1
+            ORDER BY p.position ASC
+        ');
+
+        return $query->getResult();
+    }
 }

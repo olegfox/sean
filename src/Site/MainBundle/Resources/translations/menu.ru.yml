@@ -90,6 +90,7 @@ backend:
         text: Текст продукта
         hideMenu: Скрыть в меню
         main: Показать на главной?
+        relax: На главной в разделе Релакс?
         position: Позиция
         not_found: Продукт не существует
         validation:
