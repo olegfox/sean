@@ -4,6 +4,11 @@ header .header-top {
   width: 100%;
 }
 
+header .header-top hr{
+    display: block; 
+    margin-top: 0px;
+}
+
 /* line 22, ../sass/children.sass */
 .st-menu-block {
   width: 50%;
