@@ -51,29 +51,31 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="head2">
-                                <div class="logo">
-                                    <a href="{{ path('frontend_homepage') }}"></a>
-                                </div>
-                                <div class="right">
-                                    <div class="top">
-                                        <div class="phone">
-                                            Позвонить: (495) 664-30-69
-                                        </div>
-                                        <div class="email">
-                                            Написать: websean@mail.ru
-                                        </div>
-                                        <button class="callback">Заказать обратный звонок</button>
-                                        <div class="last"></div>
+                            <div class="wrap-head2">
+                                <div class="head2">
+                                    <div class="logo">
+                                        <a href="{{ path('frontend_homepage') }}"></a>
                                     </div>
-                                    <div class="bottom">
-                                        <div class="menu">
-                                            {{ knp_menu_render('SiteMainBundle:FrontendMenuBuilder:mainMenu') }}
+                                    <div class="right">
+                                        <div class="top">
+                                            <div class="phone">
+                                                Позвонить: (495) 664-30-69
+                                            </div>
+                                            <div class="email">
+                                                Написать: websean@mail.ru
+                                            </div>
+                                            <button class="callback">Заказать обратный звонок</button>
+                                            <div class="last"></div>
+                                        </div>
+                                        <div class="bottom">
+                                            <div class="menu">
+                                                {{ knp_menu_render('SiteMainBundle:FrontendMenuBuilder:mainMenu') }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <hr/>
                             </div>
-                            <hr/>
                         </div>
                         {% block content %}
                         {% endblock %}
@@ -90,18 +92,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="footer2">
-                                <div class="inner">
-                                    <div class="left">
-                                        Контакты г. Москва, ул. Короленко 2/23,<br/>
-                                        Телефон: (495) 664-30-69, 626-86-43, 626-86-44, e-mail: <a href="mailto:websean@mail.ru">websean@mail.ru</a>
-                                    </div>
-                                    <div class="right">
-                                        ООО "СК-СЕАН-АКВА-ТЕРМ"<br/>
-                                        &copy; 2011 Группа компаний "СЕАН". Все права защищены.
+                            {% if app.request.attributes.get('_route') == 'frontend_homepage' %}
+                                <div class="footer2">
+                                    <div class="inner">
+                                        <div class="left">
+                                            Контакты г. Москва, ул. Короленко 2/23,<br/>
+                                            Телефон: (495) 664-30-69, 626-86-43, 626-86-44, e-mail: <a href="mailto:websean@mail.ru">websean@mail.ru</a>
+                                        </div>
+                                        <div class="right">
+                                            ООО "СК-СЕАН-АКВА-ТЕРМ"<br/>
+                                            &copy; 2011 Группа компаний "СЕАН". Все права защищены.
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         </footer>
                     {% endblock %}
                     <!-- конец Шапка -->

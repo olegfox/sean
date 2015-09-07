@@ -39,7 +39,42 @@ $(function () {
   });
 
   // Sticky Menu
-  $(".menu-left").sticky({topSpacing: 0});
+  $(".menu-left").sticky({topSpacing: 50});
+  $("header .wrap-head2").sticky({topSpacing: 0});
+    $("header .wrap-head2").on('sticky-start', function(){
+        $("header .wrap-head2 .logo").css({
+            'height': '69px'
+        });
+        $("header .wrap-head2 .logo a").css({
+            'height': 0
+        });
+        $("header .wrap-head2 .top").css({
+            'display': 'none'
+        });
+        $("header .wrap-head2").css({
+            'height': '50px'
+        });
+        $("header .wrap-head2 hr").css({
+            'top': '-81px'
+        });
+    });
+    $("header .wrap-head2").on('sticky-end', function(){
+        $("header .wrap-head2 .logo").css({
+            'height': '130px'
+        });
+        $("header .wrap-head2 .logo a").css({
+            'height': '103px'
+        });
+        $("header .wrap-head2 .top").css({
+            'display': 'block'
+        });
+        $("header .wrap-head2").css({
+            'height': 'auto'
+        });
+        $("header .wrap-head2 hr").css({
+            'top': '0px'
+        });
+    });
 
   // Ripple effect
   $('.grid-main').imagesLoaded(function(){
