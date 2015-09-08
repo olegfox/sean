@@ -22,6 +22,10 @@ frontend_element:
     resource: "@SiteMainBundle/Resources/config/routing/frontend/element.yml"
     prefix: /elements
 
+frontend_our_work_element:
+    resource: "@SiteMainBundle/Resources/config/routing/frontend/our_work_element.yml"
+    prefix: /our_work_elements
+
 frontend_portfolio:
     resource: "@SiteMainBundle/Resources/config/routing/frontend/portfolio.yml"
     prefix: /portfolio

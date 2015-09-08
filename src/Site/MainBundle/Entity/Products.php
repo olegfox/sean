@@ -119,6 +119,11 @@ class Products
      */
     private $blocks;
 
+    /**
+     * @ORM\OneToMany(targetEntity="OurWork", cascade={"persist", "remove"}, mappedBy="product")
+     */
+    private $ourWorks;
+
     public function getAbsolutePath()
     {
         return null === $this->img
@@ -592,5 +597,38 @@ class Products
     public function getRelax()
     {
         return $this->relax;
+    }
+
+    /**
+     * Add ourWorks
+     *
+     * @param \Site\MainBundle\Entity\OurWork $ourWorks
+     * @return Products
+     */
+    public function addOurWork(\Site\MainBundle\Entity\OurWork $ourWorks)
+    {
+        $this->ourWorks[] = $ourWorks;
+
+        return $this;
+    }
+
+    /**
+     * Remove ourWorks
+     *
+     * @param \Site\MainBundle\Entity\OurWork $ourWorks
+     */
+    public function removeOurWork(\Site\MainBundle\Entity\OurWork $ourWorks)
+    {
+        $this->ourWorks->removeElement($ourWorks);
+    }
+
+    /**
+     * Get ourWorks
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOurWorks()
+    {
+        return $this->ourWorks;
     }
 }

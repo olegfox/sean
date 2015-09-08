@@ -1,3 +1,9 @@
+frontend_our_work_element_one:
+    path:     /{permalink}/our_work_element/{slug}
+    defaults: { _controller: "SiteMainBundle:Frontend/Products:one" }
+    requirements:
+      permalink: .+
+
 frontend_element_one:
     path:     /{permalink}/element/{slug}
     defaults: { _controller: "SiteMainBundle:Frontend/Products:one" }

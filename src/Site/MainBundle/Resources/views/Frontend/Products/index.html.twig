@@ -3,11 +3,11 @@
 {% from 'SiteMainBundle:Frontend/Products:macros.html.twig' import menuLeft %}
 {% from 'SiteMainBundle:Frontend/Products:macros.html.twig' import breadcrumbs %}
 
-{% block title %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaTitle }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaTitle }}{% endif %}{% endblock %}
-{% block meta_description %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaDescription }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaDescription }}{% endif %}{% endblock %}
-{% block meta_keywords %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaKeywords }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaKeywords }}{% endif %}{% endblock %}
-{% block og_title %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaTitle }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaTitle }}{% endif %}{% endblock %}
-{% block og_description %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaDescription }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaDescription }}{% endif %}{% endblock %}
+{% block title %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaTitle }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaTitle }}{% elseif app.request.attributes.get('_route') == 'frontend_our_work_element_one' %}{{ ourWorkElement.metaTitle }}{% endif %}{% endblock %}
+{% block meta_description %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaDescription }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaDescription }}{% elseif app.request.attributes.get('_route') == 'frontend_our_work_element_one' %}{{ ourWorkElement.metaDescription }}{% endif %}{% endblock %}
+{% block meta_keywords %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaKeywords }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaKeywords }}{% elseif app.request.attributes.get('_route') == 'frontend_our_work_element_one' %}{{ ourWorkElement.metaKeywords }}{% endif %}{% endblock %}
+{% block og_title %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaTitle }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaTitle }}{% elseif app.request.attributes.get('_route') == 'frontend_our_work_element_one' %}{{ ourWorkElement.metaTitle }}{% endif %}{% endblock %}
+{% block og_description %}{% if app.request.attributes.get('_route') == 'frontend_products_one' %}{{ product.metaDescription }}{% elseif app.request.attributes.get('_route') == 'frontend_element_one' %}{{ element.metaDescription }}{% elseif app.request.attributes.get('_route') == 'frontend_our_work_element_one' %}{{ ourWorkElement.metaDescription }}{% endif %}{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -69,6 +69,29 @@
                             {{ block.textBottom|raw }}
                         {% endfor %}
                     {% endif %}
+
+                    {% if product.ourWorks|length > 0 %}
+                        {% for ourWork in product.ourWorks %}
+                            {{ ourWork.textTop|raw }}
+
+                            <div class="blocks">
+
+                                <h2 class="head-block">{{ ourWork.title }}</h2>
+
+                                {% for element in ourWork.elements %}<div class="wrap-block">
+                                    <div class="block" data-text="{{ (render(url('frontend_our_work_element_content', {slug : element.slug})))|json_encode }}" data-href="{{ path('frontend_our_work_element_one', {permalink: element.ourWork.product.permalink,slug : element.slug}) }}">
+                                        <img src="{{ image(element.webPath).zoomCrop(220, 228) }}" alt=""/>
+                                        <div class="title">
+                                            {{ element.title }}
+                                        </div>
+                                    </div>
+                                    </div>{% endfor %}
+
+                            </div>
+
+                            {{ ourWork.textBottom|raw }}
+                        {% endfor %}
+                    {% endif %}
                 </div>
             </div>
             <!-- end Text -->
@@ -88,6 +111,9 @@
             $(function(){
                 {% if app.request.attributes.get('_route') == 'frontend_element_one' %}
                     $('*[data-href="{{ path('frontend_element_one', {'permalink' : app.request.get('permalink'), 'slug' : app.request.get('slug')}) }}"]').click();
+                {% endif %}
+                {% if app.request.attributes.get('_route') == 'frontend_our_work_element_one' %}
+                    $('*[data-href="{{ path('frontend_our_work_element_one', {'permalink' : app.request.get('permalink'), 'slug' : app.request.get('slug')}) }}"]').click();
                 {% endif %}
             });
         </script>

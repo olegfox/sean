@@ -2,11 +2,12 @@
 
 namespace Site\MainBundle\Controller\Frontend;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ProductsController extends Controller
 {
-    public function oneAction($permalink, $slug)
+    public function oneAction(Request $request, $permalink, $slug)
     {
         $repository_products = $this->getDoctrine()->getRepository('SiteMainBundle:Products');
 
@@ -22,13 +23,25 @@ class ProductsController extends Controller
         );
 
         if(!is_null($slug)){
-            $repository_elements = $this->getDoctrine()->getRepository('SiteMainBundle:Element');
+            $routeName = $request->get('_route');
 
-            $element = $repository_elements->findOneBySlug($slug);
+            if($routeName == "frontend_our_work_element_one"){
+                $repository_our_work_elements = $this->getDoctrine()->getRepository('SiteMainBundle:OurWorkElement');
 
-            $params = array_merge($params, array(
-                'element' => $element
-            ));
+                $ourWorkElement = $repository_our_work_elements->findOneBySlug($slug);
+
+                $params = array_merge($params, array(
+                    'ourWorkElement' => $ourWorkElement
+                ));
+            }elseif($routeName == "frontend_element_one"){
+                $repository_elements = $this->getDoctrine()->getRepository('SiteMainBundle:Element');
+
+                $element = $repository_elements->findOneBySlug($slug);
+
+                $params = array_merge($params, array(
+                    'element' => $element
+                ));
+            }
         }
 
         return $this->render('SiteMainBundle:Frontend/Products:index.html.twig', $params);

@@ -1,0 +1,30 @@
+backend_our_work_index:
+    path:     /
+    defaults: { _controller: "SiteMainBundle:Backend/OurWork:index" }
+
+backend_our_work_show:
+    path:     /{id}/show
+    defaults: { _controller: "SiteMainBundle:Backend/OurWork:show" }
+
+backend_our_work_new:
+    path:     /new
+    defaults: { _controller: "SiteMainBundle:Backend/OurWork:new" }
+
+backend_our_work_create:
+    path:     /create
+    defaults: { _controller: "SiteMainBundle:Backend/OurWork:create" }
+    methods:  POST
+
+backend_our_work_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SiteMainBundle:Backend/OurWork:edit" }
+
+backend_our_work_update:
+    path:     /{id}/update
+    defaults: { _controller: "SiteMainBundle:Backend/OurWork:update" }
+    methods:  [POST, PUT]
+
+backend_our_work_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SiteMainBundle:Backend/OurWork:delete" }
+    methods:  [POST, DELETE]

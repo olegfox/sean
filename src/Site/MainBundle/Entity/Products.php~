@@ -119,6 +119,11 @@ class Products
      */
     private $blocks;
 
+    /**
+     * @ORM\OneToMany(targetEntity="OurWork", cascade={"persist", "remove"}, mappedBy="product")
+     */
+    private $ourWorks;
+
     public function getAbsolutePath()
     {
         return null === $this->img
@@ -569,5 +574,28 @@ class Products
     public function getBlocks()
     {
         return $this->blocks;
+    }
+
+    /**
+     * Set relax
+     *
+     * @param boolean $relax
+     * @return Products
+     */
+    public function setRelax($relax)
+    {
+        $this->relax = $relax;
+
+        return $this;
+    }
+
+    /**
+     * Get relax
+     *
+     * @return boolean 
+     */
+    public function getRelax()
+    {
+        return $this->relax;
     }
 }

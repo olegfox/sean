@@ -130,6 +130,36 @@ backend:
         validation:
             title: Вы не ввели название блока!
             date: Вы не ввели дату!
+            date: Вы не ввели дату!
+    our_work:
+        h1_show: Наши работы
+        h1_list: Список наших работ
+        h1_edit: Редактирование работ
+        h1_create: Добавление работ
+        back_to_list: Назад к списку наших работ
+        empty_list: Нет наших работ
+        product: Продукт
+        title: Название
+        textTop: Текст в начале
+        textBottom: Текст в конце
+        position: Позиция
+        elements: Работы
+        not_found: Работs не существуют
+        validation:
+            title: Вы не ввели название!
+            date: Вы не ввели дату!
+    our_work_element:
+        metatitle: Мета-заголовок
+        metadescription: Мета-описание
+        metakeywords: Ключевые слова
+        title: Название
+        text: Текст
+        img: Изображение
+        position: Позиция
+        add: Добавить
+        delete: Удалить
+        validation:
+            title: Вы не ввели название!
     element:
         h1_show: Элементы блоков в продуктах
         h1_list: Список элементов
