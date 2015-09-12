@@ -76,7 +76,7 @@
 
                             <div class="blocks">
 
-                                <h2 class="head-block">{{ ourWork.title }}</h2>
+                                <h2 class="head-block">Наши работы</h2>
 
                                 {% for element in ourWork.elements %}<div class="wrap-block">
                                     <div class="block" data-text="{{ (render(url('frontend_our_work_element_content', {slug : element.slug})))|json_encode }}" data-href="{{ path('frontend_our_work_element_one', {permalink: element.ourWork.product.permalink,slug : element.slug}) }}">
