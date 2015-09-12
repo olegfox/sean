@@ -506,8 +506,6 @@ header .content .breadcrumbs ul li span.line, header .content_portfolio .breadcr
 section .block0 {
   background: #fff;
   text-align: center;
-    border-top: solid 5px #e5e5e5;
-    margin-top: 20px;
 }
 /* line 281, ../sass/main.sass */
 section .block0 h2 {
@@ -529,7 +527,7 @@ section .block0 .grid .wrap-box {
   display: inline-block;
   width: 25%;
   vertical-align: top;
-  margin-bottom: 28px;
+  margin-bottom: 0px;
 }
 /* line 297, ../sass/main.sass */
 section .block0 .grid .wrap-box .box {
@@ -1113,4 +1111,11 @@ footer .wrap-footer1 .footer1 span {
 #cboxClose {
   position: fixed;
   background: url(../images/controls.png) no-repeat top center;
+}
+.line-video-border{
+    height: 190px;
+}
+.line-video-border video{
+    -webkit-transform: translate(-50%, -66%)!important;
+    transform: translate(-50%, -66%)!important;
 }
