@@ -1,3 +1,11 @@
 frontend_portfolio_index:
     path:     /
     defaults: { _controller: "SiteMainBundle:Frontend/Portfolio:index" }
+
+frontend_portfolio_one_content:
+    path:     /content/{slug}
+    defaults: { _controller: "SiteMainBundle:Frontend/Portfolio:oneContent" }
+
+frontend_portfolio_one:
+    path:     /{slug}
+    defaults: { _controller: "SiteMainBundle:Frontend/Portfolio:index" }

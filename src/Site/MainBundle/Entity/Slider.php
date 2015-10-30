@@ -33,6 +33,12 @@ class Slider
     private $element;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Portfolio", inversedBy="slider")
+     * @ORM\JoinColumn(name="portfolio_id", referencedColumnName="id")
+     **/
+    private $portfolio;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -86,5 +92,28 @@ class Slider
     public function getElement()
     {
         return $this->element;
+    }
+
+    /**
+     * Set portfolio
+     *
+     * @param \Site\MainBundle\Entity\Portfolio $portfolio
+     * @return Slider
+     */
+    public function setPortfolio(\Site\MainBundle\Entity\Portfolio $portfolio = null)
+    {
+        $this->portfolio = $portfolio;
+
+        return $this;
+    }
+
+    /**
+     * Get portfolio
+     *
+     * @return \Site\MainBundle\Entity\Portfolio 
+     */
+    public function getPortfolio()
+    {
+        return $this->portfolio;
     }
 }

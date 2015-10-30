@@ -12,6 +12,18 @@
             <td>{{ entity.title }}</td>
         </tr>
         <tr>
+            <th>{{ 'backend.portfolio.metaTitle'|trans({}, 'menu') }}</th>
+            <td>{{ entity.block.metaTitle }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.portfolio.metaDescription'|trans({}, 'menu') }}</th>
+            <td>{{ entity.block.metaDescription }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'backend.portfolio.metaKeywords'|trans({}, 'menu') }}</th>
+            <td>{{ entity.block.metaKeywords }}</td>
+        </tr>
+        <tr>
             <th>{{ 'backend.portfolio.img'|trans({}, 'menu') }}</th>
             <td><a href="{{ asset(entity.webPath) }}" target="_blank"><img src="{{ image(entity.webPath).resize(150) }}" alt="{{ image(entity.webPath).resize(150) }}" width="150px"/></a></td>
         </tr>

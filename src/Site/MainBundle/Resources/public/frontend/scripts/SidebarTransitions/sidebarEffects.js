@@ -100,5 +100,6 @@ var SidebarMenuEffects = (function() {
   }
 
   initNews('.blocks .block', 'st-menu-block');
+  initNews('.block-portfolio a', 'st-menu-block');
 
 })();

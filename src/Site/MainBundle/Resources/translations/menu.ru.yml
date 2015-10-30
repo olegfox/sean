@@ -187,9 +187,14 @@ backend:
         back_to_list: Назад к списку элементов портфолио
         empty_list: Нет элементов в портфолио
         title: Название элемента в портфолио
+        metatitle: Мета-заголовок
+        metadescription: Мета-описание
+        metakeywords: Ключевые слова
         description: Описание
         img: Изображение
         position: Позиция
+        text: Текст
+        sliderGallery: Слайдер
         images: Изображения
         not_found: Элемент в портфолио не существует
         validation:

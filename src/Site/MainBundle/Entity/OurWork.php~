@@ -57,7 +57,7 @@ class OurWork
     private $position = 0;
 
     /**
-     * @ORM\OneToMany(targetEntity="OurWorkElement", cascade={"persist", "remove"}, mappedBy="block")
+     * @ORM\OneToMany(targetEntity="OurWorkElement", cascade={"persist", "remove"}, mappedBy="ourWork")
      */
     private $elements;
 
@@ -225,5 +225,38 @@ class OurWork
 
     public function __toString(){
         return $this->title;
+    }
+
+    /**
+     * Add elements
+     *
+     * @param \Site\MainBundle\Entity\OurWorkElement $elements
+     * @return OurWork
+     */
+    public function addElement(\Site\MainBundle\Entity\OurWorkElement $elements)
+    {
+        $this->elements[] = $elements;
+
+        return $this;
+    }
+
+    /**
+     * Remove elements
+     *
+     * @param \Site\MainBundle\Entity\OurWorkElement $elements
+     */
+    public function removeElement(\Site\MainBundle\Entity\OurWorkElement $elements)
+    {
+        $this->elements->removeElement($elements);
+    }
+
+    /**
+     * Get elements
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getElements()
+    {
+        return $this->elements;
     }
 }

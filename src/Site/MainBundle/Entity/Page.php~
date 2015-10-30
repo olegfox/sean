@@ -330,4 +330,27 @@ class Page
     {
         return $this->children;
     }
+
+    /**
+     * Set textBottom
+     *
+     * @param string $textBottom
+     * @return Page
+     */
+    public function setTextBottom($textBottom)
+    {
+        $this->textBottom = $textBottom;
+
+        return $this;
+    }
+
+    /**
+     * Get textBottom
+     *
+     * @return string 
+     */
+    public function getTextBottom()
+    {
+        return $this->textBottom;
+    }
 }

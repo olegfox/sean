@@ -1,14 +1,15 @@
 {% extends 'SiteMainBundle:Frontend:layout.html.twig' %}
 
-{% block title %}{{ page.metaTitle }}{% endblock %}
-{% block meta_description %}{{ page.metaDescription }}{% endblock %}
-{% block meta_keywords %}{{ page.metaKeywords }}{% endblock %}
-{% block og_title %}{{ page.metaTitle }}{% endblock %}
-{% block og_description %}{{ page.metaDescription }}{% endblock %}
+{% block title %}{% if app.request.attributes.get('_route') == 'frontend_portfolio_one' %}{{ potfolioOne.metaTitle }}{% else %}{{ page.metaTitle }}{% endif %}{% endblock %}
+{% block meta_description %}{% if app.request.attributes.get('_route') == 'frontend_portfolio_one' %}{{ potfolioOne.metaDescription }}{% else %}{{ page.metaDescription }}{% endif %}{% endblock %}
+{% block meta_keywords %}{% if app.request.attributes.get('_route') == 'frontend_portfolio_one' %}{{ potfolioOne.metaKeywords }}{% else %}{{ page.metaKeywords }}{% endif %}{% endblock %}
+{% block og_title %}{% if app.request.attributes.get('_route') == 'frontend_portfolio_one' %}{{ potfolioOne.metaTitle }}{% else %}{{ page.metaTitle }}{% endif %}{% endblock %}
+{% block og_description %}{% if app.request.attributes.get('_route') == 'frontend_portfolio_one' %}{{ potfolioOne.metaDescription }}{% else %}{{ page.metaDescription }}{% endif %}{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('bundles/sitemain/frontend/scripts/photoswipe/photoswipe.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/sitemain/frontend/scripts/SidebarTransitions/component.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/sitemain/frontend/scripts/perfect-scrollbar/css/perfect-scrollbar.min.css') }}">
     <link rel="stylesheet" href="{{ asset('bundles/sitemain/frontend/styles/children.css') }}">
 {% endblock %}
@@ -17,6 +18,11 @@
     <div class="wrap-video">
         <div class="video" id="video"></div>
     </div>
+{% endblock %}
+
+{% block stMenu %}
+    <nav class="st-menu st-menu-block st-effect-1" id="st-menu-block">
+    </nav>
 {% endblock %}
 
 {% block content %}
@@ -30,7 +36,7 @@
                             {% for p in portfolio %}<div class="wrap-box">
                                 <div class="box">
                                     <div class="gallery">
-                                        <a href="{{ asset(p.webPath) }}" rel="group{{ p.id }}">
+                                        <a href="{{ path('frontend_portfolio_one', {slug : p.slug}) }}" data-text="{{ (render(url('frontend_portfolio_one_content', {slug : p.slug})))|json_encode }}" data-href="{{ path('frontend_portfolio_one', {slug : p.slug}) }}">
                                             <img src="{{ image(p.webPath).zoomCrop(347, 213) }}" alt=""/>
                                         </a>
                                     </div>
@@ -50,6 +56,12 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('bundles/sitemain/frontend/scripts/photoswipe/lib/simple-inheritance.min.js') }}"></script>
-    <script src="{{ asset('bundles/sitemain/frontend/scripts/photoswipe/code-photoswipe-1.0.11.min.js') }}"></script>
+    <script src="{{ asset('bundles/sitemain/frontend/scripts/scroll.js') }}"></script>
+    {% if app.request.get('slug') %}
+        <script type="text/javascript">
+            $(function(){
+                $('*[data-href="{{ path('frontend_portfolio_one', {'slug' : app.request.get('slug')}) }}"]').click();
+            });
+        </script>
+    {% endif %}
 {% endblock %}

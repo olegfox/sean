@@ -106,7 +106,7 @@ class OurWorkElement
 
     protected function getUploadDir()
     {
-        return 'uploads/elements';
+        return 'uploads/our_work_elements';
     }
 
     /**
@@ -346,5 +346,28 @@ class OurWorkElement
     public function getMetaKeywords()
     {
         return $this->metaKeywords;
+    }
+
+    /**
+     * Set ourWork
+     *
+     * @param \Site\MainBundle\Entity\OurWork $ourWork
+     * @return OurWorkElement
+     */
+    public function setOurWork(\Site\MainBundle\Entity\OurWork $ourWork = null)
+    {
+        $this->ourWork = $ourWork;
+
+        return $this;
+    }
+
+    /**
+     * Get ourWork
+     *
+     * @return \Site\MainBundle\Entity\OurWork 
+     */
+    public function getOurWork()
+    {
+        return $this->ourWork;
     }
 }

@@ -19,6 +19,26 @@ class PortfolioType extends AbstractType
                 'required' => true,
                 'label' => 'backend.portfolio.title'
             ))
+            ->add('metaTitle', 'text', array(
+                'required' => false,
+                'label' => 'backend.portfolio.metatitle'
+            ))
+            ->add('metaDescription', 'textarea', array(
+                'required' => false,
+                'label' => 'backend.portfolio.metadescription'
+            ))
+            ->add('metaKeywords', 'text', array(
+                'required' => false,
+                'label' => 'backend.portfolio.metakeywords'
+            ))
+            ->add('sliderGallery', 'file', array(
+                'required' => false,
+                'label' => 'backend.portfolio.sliderGallery',
+                'attr' => array(
+                    'class' => 'uploadifySlider',
+                    'multiple' => true
+                )
+            ))
             ->add('file', 'file', array(
                 'required' => false,
                 'label' => 'backend.portfolio.img'
@@ -26,6 +46,13 @@ class PortfolioType extends AbstractType
             ->add('description', 'textarea', array(
                 'required' => false,
                 'label' => 'backend.portfolio.description'
+            ))
+            ->add('text', 'textarea', array(
+                'required' => false,
+                'label' => 'backend.portfolio.text',
+                "attr" => array(
+                    "class" => "ckeditor"
+                )
             ))
             ->add('position', null, array(
                 'required' => false,

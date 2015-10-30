@@ -124,9 +124,9 @@ $(function () {
    * Portfolio
    /* ---------------------------------------------- */
 
-    if($('.block-portfolio .gallery').length > 0){
-        Code.photoSwipe('a', '.inner_block_portfolio');
-    }
+    //if($('.block-portfolio .gallery').length > 0){
+    //    Code.photoSwipe('a', '.inner_block_portfolio');
+    //}
 
     /* ---------------------------------------------- /*
      * Forms
