@@ -38,14 +38,14 @@ class PortfolioController extends Controller
     {
         $repository_portfolio = $this->getDoctrine()->getRepository('SiteMainBundle:Portfolio');
 
-        $portfolioOne = $repository_portfolio->findOneBy(array('slug' => $slug));
+        $portfolio = $repository_portfolio->findOneBy(array('slug' => $slug));
 
-        if(!$portfolioOne){
+        if(!$portfolio){
             throw $this->createNotFoundException('Портфолио не найдено');
         }
 
         $params = array(
-            'portfolioOne' => $portfolioOne
+            'portfolio' => $portfolio
         );
 
         return $this->render('SiteMainBundle:Frontend/Portfolio:content.html.twig', $params);
