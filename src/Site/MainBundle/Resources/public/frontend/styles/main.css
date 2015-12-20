@@ -5,6 +5,11 @@ html, body {
   min-height: 100%;
 }
 
+h3 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
 p{
     font-family: Arial;
     font-size: 16px;
@@ -203,7 +208,7 @@ header .background-video{
     background: url('../images/bg.png') 0 120px no-repeat;
 }
 header .background-video, header .block-portfolio {
-  height: 675px;
+  height: 550px;
   margin-top: 51px;
 }
 /* line 135, ../sass/main.sass */
@@ -435,7 +440,7 @@ header .content .wrap_head, header .content_portfolio .wrap_head {
   background: #fff;
 }
 /* line 236, ../sass/main.sass */
-header .content .wrap_head .head, header .content_portfolio .wrap_head .head {
+header .content .wrap_head h1, header .content_portfolio .wrap_head h1 {
   max-width: 1070px;
   color: #000;
   font-size: 18px;
@@ -901,12 +906,12 @@ footer .wrap-footer1 .footer1 span {
   }
 }
 /* line 525, ../sass/main.sass */
-.st-menu .wrap-head .head {
+.st-menu .wrap-head h1 {
   display: table-cell;
   vertical-align: bottom;
 }
 /* line 528, ../sass/main.sass */
-.st-menu .wrap-head .head h2 {
+.st-menu .wrap-head h2 {
   font-family: "Play" !important;
   position: relative !important;
   font-size: 21px !important;
@@ -917,7 +922,7 @@ footer .wrap-footer1 .footer1 span {
 }
 @media screen and (max-width: 960px) {
   /* line 528, ../sass/main.sass */
-  .st-menu .wrap-head .head h2 {
+  .st-menu .wrap-head h2 {
     font-size: 14px;
     margin: 0px 15px 45px 15px;
   }

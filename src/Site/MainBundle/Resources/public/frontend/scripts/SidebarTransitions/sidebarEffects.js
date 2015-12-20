@@ -59,6 +59,8 @@ var SidebarMenuEffects = (function() {
         document.getElementById( 'st-container').className = 'st-container';
         $('.' + selector2).html($.parseJSON($(this).data( 'text' )));
 
+          $('.' + selector2).scrollTop(0);
+
         $('.st-menu .close').click(function(){
           resetMenu();
         });

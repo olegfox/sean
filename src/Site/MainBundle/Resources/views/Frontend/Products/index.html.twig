@@ -40,7 +40,7 @@
         <!-- Content -->
         <div class="content">
 
-            <div class="wrap_head"><div class="head">{{ product.title }}</div></div>
+            <div class="wrap_head"><h1>{{ product.metaTitle }}</h1></div>
 
             <!-- Text -->
             <div class="wrap_text">
@@ -57,7 +57,7 @@
 
                                 {% for element in block.elements %}<div class="wrap-block">
                                         <div class="block" data-text="{{ (render(url('frontend_element_content', {slug : element.slug})))|json_encode }}" data-href="{{ path('frontend_element_one', {permalink: element.block.product.permalink,slug : element.slug}) }}">
-                                            <img src="{{ image(element.webPath).zoomCrop(220, 228) }}" alt=""/>
+                                            <img src="{{ image(element.webPath).zoomCrop(220, 228) }}" alt="{{ element.title }}"/>
                                             <div class="title">
                                                 {{ element.title }}
                                             </div>
@@ -80,7 +80,7 @@
 
                                 {% for element in ourWork.elements %}<div class="wrap-block">
                                     <div class="block" data-text="{{ (render(url('frontend_our_work_element_content', {slug : element.slug})))|json_encode }}" data-href="{{ path('frontend_our_work_element_one', {permalink: element.ourWork.product.permalink,slug : element.slug}) }}">
-                                        <img src="{{ image(element.webPath).zoomCrop(220, 228) }}" alt=""/>
+                                        <img src="{{ image(element.webPath).zoomCrop(220, 228) }}" alt="{{ element.title }}"/>
                                         <div class="title">
                                             {{ element.title }}
                                         </div>

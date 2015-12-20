@@ -10,11 +10,12 @@
     </div>
     <div class="wrap-head">
         <div class="head">
-            <h2>{{ element.title }}</h2>
+            <h1>{{ element.title }}</h1>
         </div>
     </div>
 {% else %}
     <div class="close close-black"></div>
-    <h2>{{ element.title }}</h2>
+    <h1>{{ element.title }}</h1>
 {% endif %}
+
 {{ element.text|raw }}
